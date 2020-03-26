@@ -9,14 +9,18 @@ function startGame() {
     var posY = parseInt("20");
     var tile = "tile";
     
-    while(i < 10){
-        var tileName = tile + posX + posY; 
-        console.log(tileName);
-        tileName = new component(40, 40, "white", posX, 20);
-        posX = posX + 60;
-        tilesArray.push(tileName)
-        console.log(tileName);
-        i++;
+    if (posX == 20 && posY == 20){
+        while(i < 10){
+            var tileName = tile + posX + posY; 
+            console.log(tileName);
+            tileName = new component(40, 40, "white", posX, 20);
+            posX = posX + 60;
+            tilesArray.push(tileName)
+            console.log(tileName);
+            i++;
+        }
+    } else if (posX == 20 && posY == 500){
+
     }
     //vaakasuorat pelilauta palkit
     //myGamePiece = new component(40, 40, "white", 20, 20);
@@ -90,7 +94,9 @@ function updateGameArea() {
     myGameArea.clear();
     var i = 0; 
     while(i < 9){
-        console.log(tilesArray[i]);
+        //tile = tilesArray[i];
+        tilesArray[i].update();        
+        //console.log(tilesArray[i]);
         i++;
 
     }
