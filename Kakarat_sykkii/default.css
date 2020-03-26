@@ -433,11 +433,9 @@ a
 	color: #222222;
 }
 
-a:hover
-{
-	text-decoration: none;
-}
-
+a:hover, a:active {
+	
+  }
 a img
 {
 	border: none;
@@ -752,6 +750,7 @@ hr
 
 #menu li:hover a,  #menu li.active a,  #menu li.active span
 {
+	background-color: rgba(179, 179, 179, 0.575);
 }
 
 #menu .current_page_item a
