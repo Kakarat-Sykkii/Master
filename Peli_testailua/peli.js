@@ -66,7 +66,7 @@ function startGame() {
     console.log(tilesArray.length)
    
     //pelaaja
-    player = new component(20, 20, "red", 20, 20);
+    player = new component(20, 20, "red", 30, 30);
 }
 
 function component(width, height, color, x, y) {
