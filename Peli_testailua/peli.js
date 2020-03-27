@@ -4,8 +4,11 @@ var posX = parseInt("20");
 var posY = parseInt("20");
 var tile = "tile";
 
+//alussa luodaan pelin komponentit
 function startGame() {
-    myGameArea.start();    
+    myGameArea.start();
+
+            //ylempi vaakasuora laatta rivi    
             var i = 1;
             while(i < 11){
                 var tileName = tile + posX + posY; 
@@ -16,6 +19,50 @@ function startGame() {
                 console.log(tileName);
                 i++;
             }
+
+            //alempi vaakasuora laatta rivi    
+            i = 1;
+            posX = 20;
+            posY = 560;
+            while(i < 11){
+                var tileName = tile + posX + posY; 
+                console.log(tileName);
+                tileName = new component(40, 40, "white", posX, posY);
+                posX = posX + 60;
+                tilesArray.push(tileName)
+                console.log(tileName);
+                i++;
+            }
+
+            // vasen laatta palkki    
+            i = 1;
+            posX = 20;
+            posY = 20;
+            while(i < 11){
+                var tileName = tile + posX + posY; 
+                console.log(tileName);
+                tileName = new component(40, 40, "white", posX, posY);
+                posY = posY + 60;
+                tilesArray.push(tileName)
+                console.log(tileName);
+                i++;
+            }
+            
+            // oikea laatta palkki    
+            i = 1;
+            posX = 560;
+            posY = 20;
+            while(i < 11){
+                var tileName = tile + posX + posY; 
+                console.log(tileName);
+                tileName = new component(40, 40, "white", posX, posY);
+                posY = posY + 60;
+                tilesArray.push(tileName)
+                console.log(tileName);
+                i++;
+            }
+
+
     console.log(tilesArray.length)
    
     //pelaaja
