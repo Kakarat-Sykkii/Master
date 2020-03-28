@@ -3,7 +3,7 @@ var tilesArray = [];
 var posX = parseInt("20");
 var posY = parseInt("20");
 var tile = "tile";
-
+// console.log avulla testailin missä vika kun ei toiminut
 //alussa luodaan pelin komponentit
 function startGame() {
     myGameArea.start();
@@ -12,11 +12,11 @@ function startGame() {
             var i = 1;
             while(i < 11){
                 var tileName = tile + posX + posY; 
-                console.log(tileName);
+                //console.log(tileName);
                 tileName = new component(40, 40, "white", posX, posY);
                 posX = posX + 60;
                 tilesArray.push(tileName)
-                console.log(tileName);
+                //console.log(tileName);
                 i++;
             }
 
@@ -26,11 +26,11 @@ function startGame() {
             posY = 560;
             while(i < 11){
                 var tileName = tile + posX + posY; 
-                console.log(tileName);
+                //console.log(tileName);
                 tileName = new component(40, 40, "white", posX, posY);
                 posX = posX + 60;
                 tilesArray.push(tileName)
-                console.log(tileName);
+                //console.log(tileName);
                 i++;
             }
 
@@ -40,11 +40,11 @@ function startGame() {
             posY = 20;
             while(i < 11){
                 var tileName = tile + posX + posY; 
-                console.log(tileName);
+                //console.log(tileName);
                 tileName = new component(40, 40, "white", posX, posY);
                 posY = posY + 60;
                 tilesArray.push(tileName)
-                console.log(tileName);
+                //console.log(tileName);
                 i++;
             }
             
@@ -54,21 +54,22 @@ function startGame() {
             posY = 20;
             while(i < 11){
                 var tileName = tile + posX + posY; 
-                console.log(tileName);
+                //console.log(tileName);
                 tileName = new component(40, 40, "white", posX, posY);
                 posY = posY + 60;
                 tilesArray.push(tileName)
-                console.log(tileName);
+                //console.log(tileName);
                 i++;
             }
 
 
-    console.log(tilesArray.length)
+    // console.log(tilesArray.length)
    
     //pelaaja
     player = new component(20, 20, "red", 30, 30);
 }
 
+// W3schoolsilta kopioitu jolla luodaan canvasille kappale
 function component(width, height, color, x, y) {
     this.width = width;
     this.height = height;
@@ -81,6 +82,7 @@ function component(width, height, color, x, y) {
     }
 }
 
+// päivitetään peli alueella tapahtuneet muutokset
 function updateGameArea() {
     myGameArea.clear();
     var tileCount = 0;
@@ -88,7 +90,6 @@ function updateGameArea() {
     var i; 
     for (i =0; i < tilesArray.length; i++){
         tilesArray[i].update();
-        //console.log(tilesArray[i]);
 
     }
     player.update();
