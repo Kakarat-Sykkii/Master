@@ -3,6 +3,9 @@ var tilesArray = [];
 var posX = parseInt("20");
 var posY = parseInt("20");
 var tile = "tile";
+var playerPosX = parseInt("30");
+var playerPosY = parseInt("30");
+
 
 // console.log avulla testailin missä vika kun ei toiminut
 //alussa luodaan pelin komponentit
@@ -66,13 +69,15 @@ function startGame() {
     // console.log(tilesArray.length)
    
     //pelaaja
-    player = new component(20, 20, "red", 30, 30);
+    player = new component(20, 20, "red", playerPosX, playerPosY);
 }
 
 // W3schoolsilta kopioitu jolla luodaan canvasille kappale
 function component(width, height, color, x, y) {
     this.width = width;
     this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;
     this.x = x;
     this.y = y;
     this.update = function(){
@@ -80,22 +85,44 @@ function component(width, height, color, x, y) {
     ctx.fillStyle = color;
     ctx.fillRect(this.x, this.y, this.width, this.height);
     }
+
+    this.newPos = function() {
+        this.x = playerPosX;
+        this.y = playerPosY;
+      } 
 }
 
 // päivitetään peli alueella tapahtuneet muutokset
 function updateGameArea() {
     myGameArea.clear();
-    var tileCount = 0;
-    tileCount = tilesArray.length;
     var i; 
     for (i =0; i < tilesArray.length; i++){
         tilesArray[i].update();
 
     }
+    player.newPos();
     player.update();
- 
+
   }
   
+  //
+  function moveup() {
+    playerPosY -= 60;
+  }
+  
+  function movedown() {
+    playerPosY += 60;
+  }
+  
+  function moveleft() {
+    playerPosX -= 60;
+  }
+  
+  function moveright() {
+    playerPosX += 60;
+  }
+  
+
   var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
