@@ -3,6 +3,7 @@ var tilesArray = [];
 var posX = parseInt("20");
 var posY = parseInt("20");
 var tile = "tile";
+
 // console.log avulla testailin missä vika kun ei toiminut
 //alussa luodaan pelin komponentit
 function startGame() {
@@ -61,7 +62,6 @@ function startGame() {
                 //console.log(tileName);
                 i++;
             }
-
 
     // console.log(tilesArray.length)
    
