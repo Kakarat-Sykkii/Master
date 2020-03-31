@@ -85,6 +85,21 @@ function component(width, height, color, x, y) {
     ctx.fillStyle = color;
     ctx.fillRect(this.x, this.y, this.width, this.height);
     }
+    this.checkDeSpot = function(otherobj) {
+      var myleft = this.x;
+      var myright = this.x + (this.width);
+      var mytop = this.y;
+      var mybottom = this.y + (this.height);
+      var otherleft = otherobj.x;
+      var otherright = otherobj.x + (otherobj.width);
+      var othertop = otherobj.y;
+      var otherbottom = otherobj.y + (otherobj.height);
+      var check = false;
+      if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+          check = true;
+      }
+      return check;
+  }
 
     this.newPos = function() {
         this.x = playerPosX;
@@ -92,20 +107,7 @@ function component(width, height, color, x, y) {
       } 
 }
 
-// päivitetään peli alueella tapahtuneet muutokset
-function updateGameArea() {
-    myGameArea.clear();
-    var i; 
-    for (i =0; i < tilesArray.length; i++){
-        tilesArray[i].update();
-
-    }
-    player.newPos();
-    player.update();
-
-  }
-  
-  //
+  // liikkuminen
   function moveup() {
     playerPosY -= 60;
   }
@@ -121,7 +123,6 @@ function updateGameArea() {
   function moveright() {
     playerPosX += 60;
   }
-  
 
   var myGameArea = {
     canvas : document.createElement("canvas"),
@@ -135,4 +136,21 @@ function updateGameArea() {
     clear : function() {
       this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
+}
+
+// päivitetään peli alueella tapahtuneet muutokset
+function updateGameArea() {
+  myGameArea.clear();
+  //var i; 
+  //for (i =0; i <= tilesArray.length; i++){ }
+  var i;
+  for(i = 0; i <= tilesArray.length; i++){
+    tilesArray[i].update(); 
+    if (player.checkDeSpot(tilesArray[i])){
+      player.newPos();
+
+    }
+      player.update(); 
+  }
+
 }
