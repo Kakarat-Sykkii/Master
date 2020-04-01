@@ -378,6 +378,10 @@
 		.icon-cloud-upload:before		  { content: "\f0ee"; }
 		.icon-cloud-download:before		  { content: "\f0ed"; }
 
+	
+
+
+
 
 html, body
 {
@@ -766,10 +770,12 @@ hr
 {
 }
 
-/** CONTENT */
+/** omat setit */
 
-#content
+.flexcon
 {
+	display: flex;
+	justify-content: space-around;
 }
 
 /** SIDEBAR */
@@ -844,13 +850,17 @@ hr
 #column3,
 #column4
 {
+	float: left;
 	width: 282px;
 }
 
-#column1,
-#column2
+#column1c,
+#column2c,
+#column3c
 {
-	float: left;
+	width: 350px;
+	height: auto;
+	text-align: center;
 	margin-right: 24px;
 }
 
