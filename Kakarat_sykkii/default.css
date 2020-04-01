@@ -772,12 +772,19 @@ hr
 
 /** omat setit */
 
+/**aboutus sivun container */
 .flexcon
 {
 	display: flex;
 	justify-content: space-around;
 }
 
+/**aboutus sivun kuvat */
+.usimage {
+	border-radius: 8px;
+	display: block;
+	width: 100%;
+  }
 /** SIDEBAR */
 
 #sidebar
