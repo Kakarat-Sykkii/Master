@@ -8,82 +8,65 @@ var playerPosY = 30;
 var player;
 
 
-// console.log avulla testailin missä vika kun ei toiminut
 //alussa luodaan pelin komponentit
 function startGame() {
-    myGameArea.start();
+  myGameArea.start();
 
-            //ylempi vaakasuora laatta rivi    
-            var i = 1;
-            while(i < 11){
-                var tileName = tile + posX + posY; 
-                //console.log(tileName);
-                tileName = new Component(40, 40, "white", posX, posY);
-                //console.log("rivi 21 " + tileName);
-                posX = posX + 60;
-                tilesArray.push(tileName)
-
-                //console.log(tileName.X);
-                i++;
-            }
-            console.log("rivi 28 Komponentti " + tilesArray[0].X);
-            console.log("array" + tilesArray);
-            //alempi vaakasuora laatta rivi    
-            i = 1;
-            posX = 20;
-            posY = 560;
-            while(i < 11){
-                var tileName = tile + posX + posY; 
-                //console.log(tileName);
-                tileName = new Component(40, 40, "white", posX, posY);
-                posX = posX + 60;
-                tilesArray.push(tileName)
-                //console.log(tileName);
-                i++;
-            }
-
-            // vasen laatta palkki    
-            i = 1;
-            posX = 20;
-            posY = 80;
-            while(i < 9){
-                var tileName = tile + posX + posY; 
-                //console.log(tileName);
-                tileName = new Component(40, 40, "white", posX, posY);
-                posY = posY + 60;
-                tilesArray.push(tileName)
-                //console.log(tileName);
-                i++;
-            }
-            
-            // oikea laatta palkki    
-            i = 1;
-            posX = 560;
-            posY = 80;
-            while(i < 9){
-                var tileName = tile + posX + posY; 
-                //console.log(tileName);
-                tileName = new Component(40, 40, "white", posX, posY);
-                posY = posY + 60;
-                tilesArray.push(tileName)
-                //console.log(tileName);
-                i++;
-            }
-
-    // console.log(tilesArray.length)
-
-    //pelaaja
-    player = new Component(20, 20, "red", playerPosX, playerPosY);
-    console.log("rivi 75 pelaaja " + playerPosX);
+  //ylempi vaakasuora laatta rivi    
+  var i = 1;
+  while(i < 11){
+      var tileName = tile + posX + posY; 
+      tileName = new Component(40, 40, "white", posX, posY);
+      posX = posX + 60;
+      tilesArray.push(tileName)
+      i++;
   }
+  
+  //alempi vaakasuora laatta rivi    
+  i = 1;
+  posX = 20;
+  posY = 560;
+  while(i < 11){
+      var tileName = tile + posX + posY; 
+      tileName = new Component(40, 40, "white", posX, posY);
+      posX = posX + 60;
+      tilesArray.push(tileName)
+      i++;
+  }
+
+  // vasen laatta palkki    
+  i = 1;
+  posX = 20;
+  posY = 80;
+  while(i < 9){
+      var tileName = tile + posX + posY; 
+      tileName = new Component(40, 40, "white", posX, posY);
+      posY = posY + 60;
+      tilesArray.push(tileName)
+      i++;
+  }
+  
+  // oikea laatta palkki    
+  i = 1;
+  posX = 560;
+  posY = 80;
+  while(i < 9){
+      var tileName = tile + posX + posY; 
+      tileName = new Component(40, 40, "white", posX, posY);
+      posY = posY + 60;
+      tilesArray.push(tileName)
+      i++;
+  }
+
+  //pelaaja
+  player = new Component(20, 20, "red", playerPosX, playerPosY);
+}
 
 // W3schoolsilta kopioitu jolla luodaan canvasille kappale
 class Component {
   constructor(width, height, color, x, y) {
     this.width = width;
     this.height = height;
-    //this.speedX = 0;
-    //this.speedY = 0;
     this.x = x;
     this.y = y;
     this.color = color;}
@@ -116,12 +99,11 @@ class Component {
      return this.color;
    }
 
-
   newPos(playerPosX, playerPosY) {
       this.x = playerPosX;
       this.y = playerPosY;
   }
- }
+}
 
 function moveright(){
   playerPosX += 60;
@@ -149,7 +131,6 @@ ctx.fillStyle = tileObject.Color;
 ctx.fillRect(tileObject.X, tileObject.Y, tileObject.Width, tileObject.Height);
 }
 
-
 var myGameArea = {
   canvas : document.createElement("canvas"),
   start : function() {
@@ -175,15 +156,6 @@ function updateGameArea() {
    
     ctx.fillStyle = tilesArray[i].Color;
     ctx.fillRect(tilesArray[i].X, tilesArray[i].Y, tilesArray[i].Width, tilesArray[i].Height);
-  }
-  //player.newPos();  
-  update(player);
-
-  
-  //console.log("rivi 176 " + player);
-
-      
-}
-
-
-   
+  }  
+  update(player);   
+}   
