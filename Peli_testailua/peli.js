@@ -1,10 +1,11 @@
 
 var tilesArray = [];
-var posX = parseInt("20");
-var posY = parseInt("20");
+var posX = 20;
+var posY = 20;
 var tile = "tile";
-var playerPosX = parseInt("30");
-var playerPosY = parseInt("30");
+var playerPosX = 30;
+var playerPosY = 30;
+var player;
 
 
 // console.log avulla testailin missä vika kun ei toiminut
@@ -17,13 +18,16 @@ function startGame() {
             while(i < 11){
                 var tileName = tile + posX + posY; 
                 //console.log(tileName);
-                tileName = new component(40, 40, "white", posX, posY);
+                tileName = new Component(40, 40, "white", posX, posY);
+                //console.log("rivi 21 " + tileName);
                 posX = posX + 60;
                 tilesArray.push(tileName)
-                //console.log(tileName);
+
+                //console.log(tileName.X);
                 i++;
             }
-
+            console.log("rivi 28 Komponentti " + tilesArray[0].X);
+            console.log("array" + tilesArray);
             //alempi vaakasuora laatta rivi    
             i = 1;
             posX = 20;
@@ -31,7 +35,7 @@ function startGame() {
             while(i < 11){
                 var tileName = tile + posX + posY; 
                 //console.log(tileName);
-                tileName = new component(40, 40, "white", posX, posY);
+                tileName = new Component(40, 40, "white", posX, posY);
                 posX = posX + 60;
                 tilesArray.push(tileName)
                 //console.log(tileName);
@@ -41,11 +45,11 @@ function startGame() {
             // vasen laatta palkki    
             i = 1;
             posX = 20;
-            posY = 20;
-            while(i < 11){
+            posY = 80;
+            while(i < 9){
                 var tileName = tile + posX + posY; 
                 //console.log(tileName);
-                tileName = new component(40, 40, "white", posX, posY);
+                tileName = new Component(40, 40, "white", posX, posY);
                 posY = posY + 60;
                 tilesArray.push(tileName)
                 //console.log(tileName);
@@ -55,11 +59,11 @@ function startGame() {
             // oikea laatta palkki    
             i = 1;
             posX = 560;
-            posY = 20;
-            while(i < 11){
+            posY = 80;
+            while(i < 9){
                 var tileName = tile + posX + posY; 
                 //console.log(tileName);
-                tileName = new component(40, 40, "white", posX, posY);
+                tileName = new Component(40, 40, "white", posX, posY);
                 posY = posY + 60;
                 tilesArray.push(tileName)
                 //console.log(tileName);
@@ -67,62 +71,86 @@ function startGame() {
             }
 
     // console.log(tilesArray.length)
-   
+
     //pelaaja
-    player = new component(20, 20, "red", playerPosX, playerPosY);
-}
+    player = new Component(20, 20, "red", playerPosX, playerPosY);
+    console.log("rivi 75 pelaaja " + playerPosX);
+  }
 
 // W3schoolsilta kopioitu jolla luodaan canvasille kappale
-function component(width, height, color, x, y) {
+class Component {
+  constructor(width, height, color, x, y) {
     this.width = width;
     this.height = height;
-    this.speedX = 0;
-    this.speedY = 0;
+    //this.speedX = 0;
+    //this.speedY = 0;
     this.x = x;
     this.y = y;
-    this.update = function(){
-    ctx = myGameArea.context;
-    ctx.fillStyle = color;
-    ctx.fillRect(this.x, this.y, this.width, this.height);
-    }
-    this.checkDeSpot = function(otherobj) {
-      var myleft = this.x;
-      var myright = this.x + (this.width);
-      var mytop = this.y;
-      var mybottom = this.y + (this.height);
-      var otherleft = otherobj.x;
-      var otherright = otherobj.x + (otherobj.width);
-      var othertop = otherobj.y;
-      var otherbottom = otherobj.y + (otherobj.height);
-      var check = false;
-      if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
-          check = true;
+    this.color = color;}
+
+    get X(){
+    return this.x;
+   }
+
+   set X (joku){
+    this.x = joku;
+   }
+    
+   get Y (){
+     return this.y;
+   }
+   
+   get Width(){
+    return this.width;
+   }
+    
+   get Height (){
+     return this.height;
+   }
+
+   get Color(){
+     return this.color;
+   }
+
+
+  newPos(playerPosX, playerPosY) {
+      this.x = playerPosX;
+      this.y = playerPosY;
+  }
+      // liikkuminen
+      moveup() {
+        this.y -= 60;
       }
-      return check;
-  }
+      
+      movedown() {
+        this.y += 60;
+      }
+      
+      moveleft() {
+        this.x -= 60;
+      }
+      
+      moveright() {
+        this.x += 60; 
+      }
+    }
 
-    this.newPos = function() {
-        this.x = playerPosX;
-        this.y = playerPosY;
-      } 
-}
+    function moveright(){
+      player.moveright;
+      playerPosX += 60;
+      player.X = playerPosX;
+      console.log("rivi 136 " + player.x);
+      update(player); 
+    }
+   
 
-  // liikkuminen
-  function moveup() {
-    playerPosY -= 60;
-  }
-  
-  function movedown() {
-    playerPosY += 60;
-  }
-  
-  function moveleft() {
-    playerPosX -= 60;
-  }
-  
-  function moveright() {
-    playerPosX += 60;
-  }
+
+    function update(tileObject){
+    ctx = myGameArea.context;
+    ctx.fillStyle = tileObject.Color;
+    ctx.fillRect(tileObject.X, tileObject.Y, tileObject.Width, tileObject.Height);
+    }
+
 
   var myGameArea = {
     canvas : document.createElement("canvas"),
@@ -141,16 +169,23 @@ function component(width, height, color, x, y) {
 // päivitetään peli alueella tapahtuneet muutokset
 function updateGameArea() {
   myGameArea.clear();
-  //var i; 
-  //for (i =0; i <= tilesArray.length; i++){ }
+
+  ctx = myGameArea.context;
   var i;
-  for(i = 0; i <= tilesArray.length; i++){
-    tilesArray[i].update(); 
-    if (player.checkDeSpot(tilesArray[i])){
-      player.newPos();
-
-    }
-      player.update(); 
+  for(i = 0; i < tilesArray.length; i++){
+    //update(tilesArray[i]);
+   
+    ctx.fillStyle = tilesArray[i].Color;
+    ctx.fillRect(tilesArray[i].X, tilesArray[i].Y, tilesArray[i].Width, tilesArray[i].Height);
   }
+  //player.newPos();  
+  update(player);
 
+  
+  //console.log("rivi 176 " + player);
+
+      
 }
+
+
+   
