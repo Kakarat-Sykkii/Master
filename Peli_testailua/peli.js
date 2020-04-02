@@ -92,12 +92,16 @@ class Component {
     return this.x;
    }
 
-   set X (joku){
-    this.x = joku;
+   set X (corX){
+    this.x = corX;
    }
     
    get Y (){
      return this.y;
+   }
+
+   set Y (corY){
+     this.y = corY
    }
    
    get Width(){
@@ -117,53 +121,47 @@ class Component {
       this.x = playerPosX;
       this.y = playerPosY;
   }
-      // liikkuminen
-      moveup() {
-        this.y -= 60;
-      }
-      
-      movedown() {
-        this.y += 60;
-      }
-      
-      moveleft() {
-        this.x -= 60;
-      }
-      
-      moveright() {
-        this.x += 60; 
-      }
-    }
+ }
 
-    function moveright(){
-      player.moveright;
-      playerPosX += 60;
-      player.X = playerPosX;
-      console.log("rivi 136 " + player.x);
-      update(player); 
-    }
-   
+function moveright(){
+  playerPosX += 60;
+  player.X = playerPosX;
+}
 
+function moveleft(){
+  playerPosX -= 60;
+  player.X = playerPosX;
+}
 
-    function update(tileObject){
-    ctx = myGameArea.context;
-    ctx.fillStyle = tileObject.Color;
-    ctx.fillRect(tileObject.X, tileObject.Y, tileObject.Width, tileObject.Height);
-    }
+function moveup(){
+  playerPosY -= 60;
+  player.y = playerPosY;
+}
+
+function movedown(){
+  playerPosY += 60;
+  player.Y = playerPosY;
+}
+
+function update(tileObject){
+ctx = myGameArea.context;
+ctx.fillStyle = tileObject.Color;
+ctx.fillRect(tileObject.X, tileObject.Y, tileObject.Width, tileObject.Height);
+}
 
 
-  var myGameArea = {
-    canvas : document.createElement("canvas"),
-    start : function() {
-        this.canvas.width = 620;
-        this.canvas.height = 620;
-        this.context = this.canvas.getContext("2d");
-        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-        this.interval = setInterval(updateGameArea, 20);
-    },
-    clear : function() {
-      this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    }
+var myGameArea = {
+  canvas : document.createElement("canvas"),
+  start : function() {
+      this.canvas.width = 620;
+      this.canvas.height = 620;
+      this.context = this.canvas.getContext("2d");
+      document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+      this.interval = setInterval(updateGameArea, 20);
+  },
+  clear : function() {
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  }
 }
 
 // päivitetään peli alueella tapahtuneet muutokset
