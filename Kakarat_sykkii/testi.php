@@ -33,7 +33,8 @@ Released   : 20130526
 			<li><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
 			<li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li>
             <li><a href="#" accesskey="5" title="">Contact Us</a></li><br/>
-            <li><a href="#" accesskey="6" title="" id="myBtn">Login</a></li>
+			<li><a href="#" accesskey="6" title="" id="myBtn">Login</a></li>
+			<li><a href="#" accesskey="7" title="" id="register">Register</a></li>
 		</ul>
 	</div>
 </div>

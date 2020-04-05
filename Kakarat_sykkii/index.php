@@ -38,7 +38,8 @@ Released   : 20130526
 			<li><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
 			<li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li><br/>
 			<li><a href="#" accesskey="5" title="">Contact Us</a></li>
-			<li><a href="#" accesskey="6" title="" id="myBtn">Log in</a></li>
+			<li><a href="#" accesskey="6" title="" id="login">Log in</a></li>
+			<li><a href="#" accesskey="7" title="" id="register">Register</a></li>
 		</ul>
 	</div>
 </div>
@@ -90,31 +91,7 @@ Released   : 20130526
 	  </div>
 	</div>
 </div>
-<script>
-	var modal = document.getElementById("myModal");
-	var modal2 = document.getElementById("myModal2");   
-  	var btn = document.getElementById("login");
-	var btn2 = document.getElementById("register");
-  	var span = document.getElementsByClassName("close")[0];
-	btn.onclick = function() {
-		modal.style.display = "block";
-	}
-	btn2.onclick = function() {
-		modal2.style.display = "block";
-	}
-	span.onclick = function() {
-		modal.style.display = "none";
-		modal2.style.display = "none";
-	}
-	window.onclick = function(event) {
-		if (event.target == modal) {
-			modal.style.display = "none";
-		}
-		if (event.target == modal2) {
-			modal2.style.display = "none";
-		}
-	}
-</script>
+
   
 
 <div id="portfolio" class="wrapper-style1">
@@ -158,4 +135,29 @@ Released   : 20130526
 	<p>&copy; 2013 Sitename.com. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://www.freecsstemplates.org/" rel="nofollow">FreeCSSTemplates.org</a>.</p>
 </div>
 </body>
+<script>
+	var modal = document.getElementById("myModal");
+	var modal2 = document.getElementById("myModal2");   
+  	var btn = document.getElementById("login");
+	var btn2 = document.getElementById("register");
+  	var span = document.getElementsByClassName("close")[0];
+	btn.onclick = function() {
+		modal.style.display = "block";
+	}
+	btn2.onclick = function() {
+		modal2.style.display = "block";
+	}
+	span.onclick = function() {
+		modal.style.display = "none";
+		modal2.style.display = "none";
+	}
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+		if (event.target == modal2) {
+			modal2.style.display = "none";
+		}
+	}
+</script>
 </html>
