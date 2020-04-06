@@ -40,15 +40,14 @@ Released   : 20130526
         <div class="title">
             <h2>Pelilauta</h2>
 
+            <div onload="startgame()" class="peli">
+                <script src="peli.js"></script>
+                <button onclick="moveup()">UP</button>
+                <button onclick="movedown()">DOWN</button>
+                <button onclick="moveleft()">LEFT</button>
+                <button onclick="moveright()">RIGHT</button>
 
-
-
-
-
-
-
-
-
+            </div>
 
 
             <div id="footer" class="container">
