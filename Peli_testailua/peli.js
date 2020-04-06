@@ -152,8 +152,6 @@ function updateGameArea() {
   ctx = myGameArea.context;
   var i;
   for(i = 0; i < tilesArray.length; i++){
-    //update(tilesArray[i]);
-   
     ctx.fillStyle = tilesArray[i].Color;
     ctx.fillRect(tilesArray[i].X, tilesArray[i].Y, tilesArray[i].Width, tilesArray[i].Height);
   }  
