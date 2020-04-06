@@ -41,6 +41,54 @@ Released   : 20130526
                 <h2>Tietoa meistä</h2>
                 <span class="byline">Miten me päädyttiin tänne </div>
             
-            <p>OLLAAN VITUN SIISTEJÄ ÄIJIÄ PAITSI ILKKA </p>
+            <p>Kakarat sykkii- sovelluksen 3 muskettisoturia </p>
         </span>
         </div>
+
+        <div class="flexcon">
+<div id="column1c">
+		<p><a href="#" class="image image-full"><img src="images/aatukomea.jpeg" alt="" /></a></p>
+		<p><strong>Aatu Kotanen</strong> on ryhmän selkeästi komein ja lihaksikkain mies, myös fiksuin</p>
+		<a href="#" class="button">Read More</a> </div>
+	<div id="column2c">
+		<p><a href="#" class="image image-full"><img src="images/ilkka.jpeg" alt="" /></a></p>
+		<p><strong>Ilkka Törmäkä</strong> Vitun pyristelijä näätä, hänestä ei ole mihinkään</p>
+		<a href="#" class="button">Read More</a> </div>
+	<div id="column3c">
+		<p><a href="#" class="image image-full"><img src="images/jussinaata.jpeg" alt="" /></a></p>
+		<p><strong>Jussi Salminen</strong> Näätä, asuu hoasin asunnossa ja ei maksa vuokraa</p>
+		<a href="#" class="button">Read More</a> </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="footer" class="container">
+            <div>
+                <div class="title">
+                    <h2>Get in touch</h2>
+                    <span class="byline">Phasellus nec erat sit amet nibh pellentesque congue</span> </div>
+                <ul class="contact">
+                    <li><a href="#" class="icon icon-twitter"><span>Twitter</span></a></li>
+                    <li><a href="#" class="icon icon-facebook"><span></span></a></li>
+                    <li><a href="#" class="icon icon-dribbble"><span>Pinterest</span></a></li>
+                    <li><a href="#" class="icon icon-tumblr"><span>Google+</span></a></li>
+                    <li><a href="#" class="icon icon-rss"><span>Pinterest</span></a></li>
+                </ul>
+            </div>
+            <p>&copy; 2013 Sitename.com. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://www.freecsstemplates.org/" rel="nofollow">FreeCSSTemplates.org</a>.</p>
+        </div>
+        </body>
+        </html>
+        

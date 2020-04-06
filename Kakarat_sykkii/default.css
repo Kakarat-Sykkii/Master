@@ -378,6 +378,10 @@
 		.icon-cloud-upload:before		  { content: "\f0ee"; }
 		.icon-cloud-download:before		  { content: "\f0ed"; }
 
+	
+
+
+
 
 html, body
 {
@@ -562,7 +566,7 @@ hr
 		display: inline-block;
 		margin-top: 2em;
 		padding: 1em 3em;
-		background: #C4376B;
+		background: lightblue;
 		border-radius: 7px;
 		-moz-transition: opacity 0.25s ease-in-out;
 		-webkit-transition: opacity 0.25s ease-in-out;
@@ -578,12 +582,12 @@ hr
 
 		.button:hover
 		{
-			background: #D64077;
+			background: grey;
 		}
 		
 		.button:active
 		{
-			background: #BD3567;
+			background: grey;
 		}
 			
 /** WRAPPER */
@@ -766,12 +770,21 @@ hr
 {
 }
 
-/** CONTENT */
+/** omat setit */
 
-#content
+/**aboutus sivun container */
+.flexcon
 {
+	display: flex;
+	justify-content: space-around;
 }
 
+/**aboutus sivun kuvat */
+.usimage {
+	border-radius: 8px;
+	display: block;
+	width: 100%;
+  }
 /** SIDEBAR */
 
 #sidebar
@@ -844,13 +857,17 @@ hr
 #column3,
 #column4
 {
+	float: left;
 	width: 282px;
 }
 
-#column1,
-#column2
+#column1c,
+#column2c,
+#column3c
 {
-	float: left;
+	width: 350px;
+	height: auto;
+	text-align: center;
 	margin-right: 24px;
 }
 
