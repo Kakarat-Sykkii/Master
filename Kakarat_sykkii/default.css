@@ -583,6 +583,7 @@ hr
 		.button:hover
 		{
 			background: grey;
+			transition: all 0.3s ease;
 		}
 		
 		.button:active
@@ -755,6 +756,7 @@ hr
 #menu li:hover a,  #menu li.active a,  #menu li.active span
 {
 	background-color: rgba(179, 179, 179, 0.575);
+	transition: all 0.3s ease;
 }
 
 #menu .current_page_item a
@@ -770,7 +772,7 @@ hr
 {
 }
 
-/** omat setit */
+/** omat setit **********************************************/
 
 /**aboutus sivun container */
 .flexcon
@@ -779,11 +781,30 @@ hr
 	justify-content: space-around;
 }
 
-/**aboutus sivun kuvat */
-.usimage {
-	border-radius: 8px;
+/**vinkkejä sivun container*/
+.flexconv
+{
+	display: flex;
+	justify-content: space space-around;
+	vertical-align: bottom;
+}
+/**kuvien classit et saahaan ne samaan kohtaan*/
+.imgrotta
+{
+	height: 100;
+	width: 100;
 	display: block;
 	width: 100%;
+	margin: 0 4em 2em 0;
+	
+}
+
+/**aboutus sivun kuvat */
+.usimage
+ {
+	/**border-radius: 100%;*/
+	height: 250px;
+	width: 150px;
   }
 /** SIDEBAR */
 
