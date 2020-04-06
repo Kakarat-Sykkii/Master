@@ -47,15 +47,15 @@ Released   : 20130526
 
         <div class="flexcon">
 <div id="column1c">
-		<p><a href="#" class="image image-full"><img src="images/aatukomea.jpeg" alt="" /></a></p>
+		<p><img src="images/aatukomea.jpeg" class="usimage"alt="" /></p>
 		<p><strong>Aatu Kotanen</strong> on ryhmän selkeästi komein ja lihaksikkain mies, myös fiksuin</p>
 		<a href="#" class="button">Read More</a> </div>
 	<div id="column2c">
-		<p><a href="#" class="image image-full"><img src="images/ilkka.jpeg" alt="" /></a></p>
-		<p><strong>Ilkka Törmäkä</strong> Vitun pyristelijä näätä, hänestä ei ole mihinkään</p>
+		<p><img src="images/ilkka.jpeg"class="usimage" alt="" /></p>
+		<p><strong>Ilkka Törmälä</strong> Vitun pyristelijä näätä, hänestä ei ole mihinkään</p>
 		<a href="#" class="button">Read More</a> </div>
 	<div id="column3c">
-		<p><a href="#" class="image image-full"><img src="images/jussinaata.jpeg" alt="" /></a></p>
+		<p><img src="images/jussinaata.jpeg"class="usimage" alt="" /></p>
 		<p><strong>Jussi Salminen</strong> Näätä, asuu hoasin asunnossa ja ei maksa vuokraa</p>
 		<a href="#" class="button">Read More</a> </div>
     </div>
