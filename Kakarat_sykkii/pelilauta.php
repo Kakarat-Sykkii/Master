@@ -41,7 +41,7 @@ Released   : 20130526
             <h2>Pelilauta</h2>
 
             <div  onload="startgame()" class="peli">
-                <script src="peli.js"></script>
+                <script src="peli/peli.js"></script>
                 <button onclick="moveup()">UP</button>
                 <button onclick="movedown()">DOWN</button>
                 <button onclick="moveleft()">LEFT</button>
