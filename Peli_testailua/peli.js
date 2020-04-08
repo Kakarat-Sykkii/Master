@@ -113,6 +113,7 @@ function moveright(){
 function moveleft(){
   playerPosX -= 60;
   player.X = playerPosX;
+  
 }
 
 function moveup(){
@@ -156,22 +157,5 @@ function updateGameArea() {
     ctx.fillStyle = tilesArray[i].Color;
     ctx.fillRect(tilesArray[i].X, tilesArray[i].Y, tilesArray[i].Width, tilesArray[i].Height);
   }
-  for(i = 0; i < tilesArray.length; i ++){
-    var playerLeft = player.X;
-    var playerRight = player.X + player.Width;
-    var playerTop = player.Y;
-    var playerBot = player.Y + player.Height;
-    
-    var tileLeft = tilesArray[i].X;
-    var tileRight = tilesArray[i].X + tilesArray[i].Width;
-    var tileTop = tilesArray[i].Y;
-    var tileBot = tilesArray[i].Y + tilesArray[i].Height;
-
-    //console.log("tile vasen " + playerLeft + " tile oikea " + playerRight + " tile top " + playerTop  + " tile bot " + playerBot);
-
-    if (playerLeft > tileLeft && playerRight < tileRight && 
-        playerTop > tileTop && playerBot < tileBot){
-        update(player);
-      } 
-    }
-  }   
+  update(player);
+  }    
