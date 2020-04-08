@@ -137,7 +137,7 @@ var myGameArea = {
       this.canvas.width = 620;
       this.canvas.height = 620;
       this.context = this.canvas.getContext("2d");
-      document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+      peliarea.insertBefore(this.canvas, pelilauta.firstChild);
       this.interval = setInterval(updateGameArea, 20);
   },
   clear : function() {
