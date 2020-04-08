@@ -139,7 +139,7 @@ var myGameArea = {
       this.context = this.canvas.getContext("2d");
       var peliarea = document.getElementById('peliarea');
       peliarea.insertBefore(this.canvas, peliarea.firstChild);
-      this.interval = setInterval(updateGameArea, 20);
+      this.interval = setInterval(updateGameArea, 1);
   },
   clear : function() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -155,6 +155,23 @@ function updateGameArea() {
   for(i = 0; i < tilesArray.length; i++){
     ctx.fillStyle = tilesArray[i].Color;
     ctx.fillRect(tilesArray[i].X, tilesArray[i].Y, tilesArray[i].Width, tilesArray[i].Height);
-  }  
-  update(player);   
-}   
+  }
+  for(i = 0; i < tilesArray.length; i ++){
+    var playerLeft = player.X;
+    var playerRight = player.X + player.Width;
+    var playerTop = player.Y;
+    var playerBot = player.Y + player.Height;
+    
+    var tileLeft = tilesArray[i].X;
+    var tileRight = tilesArray[i].X + tilesArray[i].Width;
+    var tileTop = tilesArray[i].Y;
+    var tileBot = tilesArray[i].Y + tilesArray[i].Height;
+
+    //console.log("tile vasen " + playerLeft + " tile oikea " + playerRight + " tile top " + playerTop  + " tile bot " + playerBot);
+
+    if (playerLeft > tileLeft && playerRight < tileRight && 
+        playerTop > tileTop && playerBot < tileBot){
+        update(player);
+      } 
+    }
+  }   
