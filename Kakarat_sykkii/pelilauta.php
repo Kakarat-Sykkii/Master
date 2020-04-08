@@ -22,6 +22,7 @@ Released   : 20130526
 <![endif]-->
 </head>
 <body onload="startGame()">
+
     <div id="header" class="container">
         <div id="logo">
             <h1><a href="index.html">Kakarat sykkii</a></h1>
@@ -39,14 +40,11 @@ Released   : 20130526
     <div id="welcome" class="wrapper-style1">
         <div class="title">
             <h2>Pelilauta</h2>
-
-            <div class="peli" >
-                <script src="peli/peli.js"  ></script>
+            <div id="pelilauta" >
                 <button onclick="moveup()">UP</button>
                 <button onclick="movedown()">DOWN</button>
                 <button onclick="moveleft()">LEFT</button>
                 <button onclick="moveright()">RIGHT</button>
-
             </div>
 
 
@@ -65,6 +63,7 @@ Released   : 20130526
                 </div>
                 <p>&copy; 2013 Sitename.com. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://www.freecsstemplates.org/" rel="nofollow">FreeCSSTemplates.org</a>.</p>
             </div>
+            <script src="peli/peli.js"  ></script>
             </body>
             </html>
             
