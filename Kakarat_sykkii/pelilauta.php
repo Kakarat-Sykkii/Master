@@ -21,7 +21,7 @@ Released   : 20130526
 <link href="default_ie6.css" rel="stylesheet" type="text/css" />
 <![endif]-->
 </head>
-<body>
+<body onload="startGame()">
     <div id="header" class="container">
         <div id="logo">
             <h1><a href="index.html">Kakarat sykkii</a></h1>
@@ -41,7 +41,7 @@ Released   : 20130526
             <h2>Pelilauta</h2>
 
             <div class="peli" >
-                <script src="peli/peli.js"  onload="startgame()" ></script>
+                <script src="peli/peli.js"  ></script>
                 <button onclick="moveup()">UP</button>
                 <button onclick="movedown()">DOWN</button>
                 <button onclick="moveleft()">LEFT</button>
