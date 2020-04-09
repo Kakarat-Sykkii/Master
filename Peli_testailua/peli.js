@@ -3,10 +3,8 @@ var tilesArray = [];
 var posX = 20;
 var posY = 20;
 var tile = "tile";
-var playerPosX = 30;
-var playerPosY = 30;
 var player;
-
+var check;
 
 //alussa luodaan pelin komponentit
 function startGame() {
@@ -59,7 +57,7 @@ function startGame() {
   }
 
   //pelaaja
-  player = new Component(20, 20, "red", playerPosX, playerPosY);
+  player = new Component(20, 20, "red", 30, 30);
 }
 
 // W3schoolsilta kopioitu jolla luodaan canvasille kappale
@@ -98,33 +96,69 @@ class Component {
    get Color(){
      return this.color;
    }
-
-  newPos(playerPosX, playerPosY) {
-      this.x = playerPosX;
-      this.y = playerPosY;
-  }
 }
 
 function moveright(){
-  playerPosX += 60;
-  player.X = playerPosX;
+  player.X += 60;
+  check = 0;
+  posCheck();
+  if (check == 0){
+    player.X -= 60;
+  }
+  
 }
 
 function moveleft(){
-  playerPosX -= 60;
-  player.X = playerPosX;
+  player.X -= 60;
+  check = 0;
+  posCheck();
+  if (check == 0){
+    player.X += 60;
+  }
   
 }
 
 function moveup(){
-  playerPosY -= 60;
-  player.y = playerPosY;
+  player.Y -= 60;
+  check = 0;
+  posCheck();
+  if (check == 0){
+    player.Y += 60;
+  }
+  
 }
 
 function movedown(){
-  playerPosY += 60;
-  player.Y = playerPosY;
+  player.Y += 60;
+  check = 0;
+  posCheck();
+  if (check == 0){
+    player.Y -= 60;
+  }
+  
 }
+
+function posCheck(){
+
+  var i;
+  for(i = 0; i < tilesArray.length; i ++){
+    var playerLeft = player.X;
+    var playerRight = player.X + player.Width;
+    var playerTop = player.Y;
+    var playerBot = player.Y + player.Height;
+
+    var tileLeft = tilesArray[i].X;
+    var tileRight = tilesArray[i].X + tilesArray[i].Width;
+    var tileTop = tilesArray[i].Y;
+    var tileBot = tilesArray[i].Y + tilesArray[i].Height;
+
+    if (playerLeft > tileLeft && playerRight < tileRight && 
+        playerTop > tileTop && playerBot < tileBot){
+        check = 1;
+      }      
+    }
+  }   
+
 
 function update(tileObject){
 ctx = myGameArea.context;
@@ -140,7 +174,7 @@ var myGameArea = {
       this.context = this.canvas.getContext("2d");
       var peliarea = document.getElementById('peliarea');
       peliarea.insertBefore(this.canvas, peliarea.firstChild);
-      this.interval = setInterval(updateGameArea, 1);
+      this.interval = setInterval(updateGameArea, 100);
   },
   clear : function() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
