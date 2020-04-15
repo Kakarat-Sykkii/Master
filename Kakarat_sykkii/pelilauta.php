@@ -47,6 +47,9 @@ Released   : 20130526
                 <button onclick="moveleft()">LEFT</button>
                 <button onclick="moveright()">RIGHT</button>
             </div>
+            <div>
+                <button onclick="Dice()">Heitä noppaa</button>
+            </div>
 
 
             <div id="footer" class="container">

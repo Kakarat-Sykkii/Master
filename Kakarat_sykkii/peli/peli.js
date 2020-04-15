@@ -3,10 +3,9 @@ var tilesArray = [];
 var posX = 20;
 var posY = 20;
 var tile = "tile";
-var playerPosX = 30;
-var playerPosY = 30;
 var player;
-
+var check;
+var dice = 0;
 
 //alussa luodaan pelin komponentit
 function startGame() {
@@ -59,7 +58,7 @@ function startGame() {
   }
 
   //pelaaja
-  player = new Component(20, 20, "red", playerPosX, playerPosY);
+  player = new Component(20, 20, "red", 30, 30);
 }
 
 // W3schoolsilta kopioitu jolla luodaan canvasille kappale
@@ -98,32 +97,81 @@ class Component {
    get Color(){
      return this.color;
    }
-
-  newPos(playerPosX, playerPosY) {
-      this.x = playerPosX;
-      this.y = playerPosY;
-  }
 }
 
 function moveright(){
-  playerPosX += 60;
-  player.X = playerPosX;
+  if(dice > 0){
+    player.X += 60;
+    check = 0;
+    posCheck();
+    if (check == 0){
+      player.X -= 60;
+    } if (check == 1){
+      dice--;
+    }
+  }
 }
 
 function moveleft(){
-  playerPosX -= 60;
-  player.X = playerPosX;
+  if(dice > 0){
+    player.X -= 60;
+    check = 0;
+    posCheck();
+    if (check == 0){
+      player.X += 60;
+    } if (check == 1){
+      dice--;
+    }
+  }
 }
 
 function moveup(){
-  playerPosY -= 60;
-  player.y = playerPosY;
+  if(dice > 0){
+    player.Y -= 60;
+    check = 0;
+    posCheck();
+    if (check == 0){
+      player.Y += 60;
+    } if (check == 1){
+      dice --;
+    }
+  }
 }
 
 function movedown(){
-  playerPosY += 60;
-  player.Y = playerPosY;
+  if(dice > 0){
+    player.Y += 60;
+    check = 0;
+    posCheck();
+    if (check == 0){
+      player.Y -= 60;
+    } if (check == 1){
+      dice--;
+    }
+  }
 }
+
+function posCheck(){
+
+  var i;
+  for(i = 0; i < tilesArray.length; i ++){
+    var playerLeft = player.X;
+    var playerRight = player.X + player.Width;
+    var playerTop = player.Y;
+    var playerBot = player.Y + player.Height;
+
+    var tileLeft = tilesArray[i].X;
+    var tileRight = tilesArray[i].X + tilesArray[i].Width;
+    var tileTop = tilesArray[i].Y;
+    var tileBot = tilesArray[i].Y + tilesArray[i].Height;
+
+    if (playerLeft > tileLeft && playerRight < tileRight && 
+        playerTop > tileTop && playerBot < tileBot){
+        check = 1;
+      }      
+    }
+  }   
+
 
 function update(tileObject){
 ctx = myGameArea.context;
@@ -139,7 +187,7 @@ var myGameArea = {
       this.context = this.canvas.getContext("2d");
       var peliarea = document.getElementById('peliarea');
       peliarea.insertBefore(this.canvas, peliarea.firstChild);
-      this.interval = setInterval(updateGameArea, 20);
+      this.interval = setInterval(updateGameArea, 100);
   },
   clear : function() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -155,6 +203,13 @@ function updateGameArea() {
   for(i = 0; i < tilesArray.length; i++){
     ctx.fillStyle = tilesArray[i].Color;
     ctx.fillRect(tilesArray[i].X, tilesArray[i].Y, tilesArray[i].Width, tilesArray[i].Height);
-  }  
-  update(player);   
-}   
+  }
+  update(player);
+  }
+  
+function Dice(){
+  if (dice == 0){
+    dice = Math.floor(Math.random()*6)+1;
+    console.log(dice);
+  }
+}    
