@@ -5,6 +5,7 @@ var posY = 20;
 var tile = "tile";
 var player;
 var check;
+var dice = 0;
 
 //alussa luodaan pelin komponentit
 function startGame() {
@@ -99,43 +100,55 @@ class Component {
 }
 
 function moveright(){
-  player.X += 60;
-  check = 0;
-  posCheck();
-  if (check == 0){
-    player.X -= 60;
+  if(dice > 0){
+    player.X += 60;
+    check = 0;
+    posCheck();
+    if (check == 0){
+      player.X -= 60;
+    } if (check == 1){
+      dice--;
+    }
   }
-  
 }
 
 function moveleft(){
-  player.X -= 60;
-  check = 0;
-  posCheck();
-  if (check == 0){
-    player.X += 60;
+  if(dice > 0){
+    player.X -= 60;
+    check = 0;
+    posCheck();
+    if (check == 0){
+      player.X += 60;
+    } if (check == 1){
+      dice--;
+    }
   }
-  
 }
 
 function moveup(){
-  player.Y -= 60;
-  check = 0;
-  posCheck();
-  if (check == 0){
-    player.Y += 60;
+  if(dice > 0){
+    player.Y -= 60;
+    check = 0;
+    posCheck();
+    if (check == 0){
+      player.Y += 60;
+    } if (check == 1){
+      dice --;
+    }
   }
-  
 }
 
 function movedown(){
-  player.Y += 60;
-  check = 0;
-  posCheck();
-  if (check == 0){
-    player.Y -= 60;
+  if(dice > 0){
+    player.Y += 60;
+    check = 0;
+    posCheck();
+    if (check == 0){
+      player.Y -= 60;
+    } if (check == 1){
+      dice--;
+    }
   }
-  
 }
 
 function posCheck(){
