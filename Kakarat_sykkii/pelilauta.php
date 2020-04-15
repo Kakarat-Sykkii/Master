@@ -41,6 +41,7 @@ Released   : 20130526
         <div class="title">
             <h2>Pelilauta</h2>
             <div id="peliarea"></div>
+            <div><p id = "liikkuminen" ></p></div>
             <div id="nappulat">
                 <button onclick="moveup()">UP</button>
                 <button onclick="movedown()">DOWN</button>
