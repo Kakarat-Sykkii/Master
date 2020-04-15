@@ -192,4 +192,11 @@ function updateGameArea() {
     ctx.fillRect(tilesArray[i].X, tilesArray[i].Y, tilesArray[i].Width, tilesArray[i].Height);
   }
   update(player);
-  }    
+  }
+  
+function Dice(){
+  if (dice == 0){
+    dice = Math.floor(Math.random()*6)+1;
+    console.log(dice);
+  }
+}    
