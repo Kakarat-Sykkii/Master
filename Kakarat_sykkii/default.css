@@ -806,6 +806,41 @@ hr
 	height: 250px;
 	width: 150px;
   }
+
+/** login linkit*/
+#login2
+{
+	height: 200px;
+	width: 10%;
+}
+#login2 li a, #login2 li span
+{
+	display: block;
+	padding: 0.30em 1.5em;
+	font-size: 1em;
+	font-weight: 700;
+	text-transform: uppercase;
+	outline: 0;
+	color: #595959;
+	
+}
+#login2 li:hover a
+{
+	background-color: rgba(179, 179, 179, 0.575);
+	transition: all 0.3s ease;
+}
+#login2 ul
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+#login2 li
+{
+	display: inline;
+
+}
 /** SIDEBAR */
 
 #sidebar
