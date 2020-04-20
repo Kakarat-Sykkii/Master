@@ -9,7 +9,7 @@ if(isset($_POST['submitOpe'])){
      try {
       //Tiedot kannasta, hakuehto
       $data['email'] = $_POST['givenEmail'];
-      $STH = $DBH->prepare("SELECT userEmail, Opettajasalasana, Opettajanimi FROM KS_opettaja WHERE userEmail = :email;");
+      $STH = $DBH->prepare("SELECT OpettajaID, LuokkaID, userEmail, Opettajasalasana, Opettajanimi FROM KS_opettaja WHERE userEmail = :email;");
       $STH->execute($data);
       $STH->setFetchMode(PDO::FETCH_OBJ);
       $tulosOlio=$STH->fetch();
@@ -24,6 +24,8 @@ if(isset($_POST['submitOpe'])){
               $_SESSION['sloggedIn']="yes";
               $_SESSION['sname']=$tulosOlio->Opettajanimi;
               $_SESSION['suserEmail']=$tulosOlio->userEmail;
+              /*$_SESSION['sLuokkaID']=$tulosOlio->LuokkaID;*/
+              $_SESSION['sOpettajaID']=$tulosOlio->OpettajaID;
               header("Location: index.php"); //Palataan pääsivulle kirjautuneena
           }else{
             $_SESSION['swarningInput']="Wrong password";

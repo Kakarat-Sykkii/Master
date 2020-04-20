@@ -17,13 +17,13 @@ if(isset($_POST['submitUser'])){
   $_SESSION['semail']=$_POST['givenEmail'];
   $_SESSION['sloggedIn']="yes";
   $_SESSION['sname']= $_POST['gName'];
-  $_SESSION['sLuokkaID']=$_POST['gLuokkaID'];
+  /*$_SESSION['sLuokkaID']=$_POST['gLuokkaID'];*/
 
 
   //2. Tiedot kantaan - kesken
   $data['email'] = $_POST['givenEmail'];
   $data['name'] = $_POST['gName'];
-  $data['luokkaID'] = $_POST['gLuokkaID'];
+  /*$data['luokkaID'] = $_POST['gLuokkaID'];*/
   $added='#â‚¬%&&/'; //suolataan annettu salasana
   $data['pwd'] = password_hash($_POST['gPassword'].$added, PASSWORD_BCRYPT);
   try {
@@ -33,7 +33,7 @@ if(isset($_POST['submitUser'])){
     $kysely->execute();				
     $tulos=$kysely->fetch();
     if($tulos[0] == 0){ //email ei ole käytössä
-     $STH = $DBH->prepare("INSERT INTO KS_opettaja (LuokkaID, userEmail, Opettajasalasana, Opettajanimi) VALUES (:luokkaID, :email, :pwd, :name);");
+     $STH = $DBH->prepare("INSERT INTO KS_opettaja (/*LuokkaID, */userEmail, Opettajasalasana, Opettajanimi) VALUES (/*:luokkaID, */:email, :pwd, :name);");
      $STH->execute($data);
      header("Location: index.php"); //Palataan pääsivulle kirjautuneena
     }else{
