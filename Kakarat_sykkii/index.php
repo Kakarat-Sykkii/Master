@@ -37,7 +37,6 @@ Released   : 20130526
 			<li><a href="pelilauta.php" accesskey="2" title="">Pelilauta</a></li>
 			<li><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
 			<li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li><br/>
-			<li><a href="#" accesskey="5" title="">Contact Us</a></li>
 			<li><a href="#" accesskey="6" title="" id="login">Log in</a></li>
 			<li><a href="#" accesskey="7" title="" id="register">Register</a></li>
 		</ul>
@@ -46,9 +45,11 @@ Released   : 20130526
 <div id="welcome" class="wrapper-style1">
 	<div class="title">
 		<h2>Ryhmä 6 Sykkii</h2>
-		<span class="byline">Ryhmäläiset: Ilkka Jussi Aatu</span> </div>
-	<a href="#" class="image image-full"><img src="images/Aatu 10 v.jpeg" alt="" /></a>
-	<p>This is <strong>UpRight</strong>, a free, fully standards-compliant CSS template designed by <a href="http://www.freecsstemplates.org/" rel="nofollow">FreeCSSTemplates.org</a>..   The photos in this template are from <a href="http://fotogrph.com/"> Fotogrph</a>. This free template is released under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attributions 3.0</a> license, so you are pretty much free to do whatever you want with it (even use it commercially) provided you keep the links in the footer intact. Aside from that, have fun with it :) </p>
+		<span class="byline">Ryhmäläiset: Ilkka, Jussi & Aatu</span> </div>
+	<a href="#" class="image image-full"><img src="images/lapset2.jpg" alt="kuva lapsista leikkimässä" /></a>
+    <p><strong>Kakarat Sykkii</strong>- sovelluksen on tarkoitus saada sinut ja sinun kaverisi liikkumaan yhdessä, ja liikunnan avulla tavoitella mahtavia palkintoja jännittävässä kilpailussa.
+    Liikunta on tärkeää kaikille, varsinkin lapsille. Koulupäivät voivat joskus tuntua pitkiltä ja tylsiltä mutta liikunnan avulla mieli pysyy virkeänä ja jaksaa oppia uusia asioita!
+    <a>Ota siis rohkeasti ystäväsi mukaan ja tule kokeilemaan!</a></p>
 </div>
 
 <!--Login popup code-->
@@ -94,27 +95,7 @@ Released   : 20130526
 
   
 
-<div id="portfolio" class="wrapper-style1">
-	<div class="title">
-		<h2>Suspendisse lacus turpis</h2>
-		<span class="byline">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</span> </div>
-	<div id="column1">
-		<p><a href="#" class="image image-full"><img src="images/Aatu 10 v.jpeg" alt="" /></a></p>
-		<p>Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Mauris quam enim, molestie.</p>
-		<a href="#" class="button">Read More</a> </div>
-	<div id="column2">
-		<p><a href="#" class="image image-full"><img src="images/Aatu 10 v.jpeg" alt="" /></a></p>
-		<p>Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Mauris quam enim, molestie.</p>
-		<a href="#" class="button">Read More</a> </div>
-	<div id="column3">
-		<p><a href="#" class="image image-full"><img src="images/Aatu 10 v.jpeg" alt="" /></a></p>
-		<p>Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Mauris quam enim, molestie.</p>
-		<a href="#" class="button">Read More</a> </div>
-	<div id="column4">
-		<p><a href="#" class="image image-full"><img src="images/Aatu 10 v.jpeg" alt="" /></a></p>
-		<p>Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Mauris quam enim, molestie.</p>
-		<a href="#" class="button">Read More</a> </div>
-</div>
+
 <div id="page">
 	<div id="content"></div>
 	<div id="sidebar"></div>
@@ -123,7 +104,7 @@ Released   : 20130526
 	<div>
 		<div class="title">
 			<h2>Get in touch</h2>
-			<span class="byline">Phasellus nec erat sit amet nibh pellentesque congue</span> </div>
+			<span class="byline">Hyödyllisiä linkkejä sinulle</span> </div>
 		<ul class="contact">
 			<li><a href="#" class="icon icon-twitter"><span>Twitter</span></a></li>
 			<li><a href="#" class="icon icon-facebook"><span></span></a></li>
