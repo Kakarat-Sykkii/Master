@@ -32,15 +32,15 @@ Released   : 20130526
         <h1><a href="#">Kakarat sykkii</a></h1>
         <div id="login2">
     <ul>
-        <li><a href="#" accesskey="6" title="" id="login">Log in</a></li>
-        <li><a href="#" accesskey="7" title="" id="register">Register</a></li>
+        <li><a href="#" accesskey="6" title="" id="login">Kirjaudu</a></li>
+        <li><a href="#" accesskey="7" title="" id="register">Rekisteröidy</a></li>
     </ul>
 </div>
     </div>
         
 	<div id="menu">
 		<ul>
-			<li class="current_page_item"><a href="#" accesskey="1" title="">Homepage</a></li>
+			<li class="current_page_item"><a href="#" accesskey="1" title="">Etusivu</a></li>
 			<li><a href="pelilauta.php" accesskey="2" title="">Pelilauta</a></li>
 			<li><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
 			<li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li><br/>
