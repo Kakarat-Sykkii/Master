@@ -1,7 +1,10 @@
 <?php
+	include("config/start.php");
 	include_once("config/config.php");
-	session_start();
 	include_once("forms/register.php");
+	include_once("forms/login.php");
+	include("includes/inav.php");
+	session_start();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
@@ -39,6 +42,8 @@ Released   : 20130526
 			<li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li><br/>
 			<li><a href="#" accesskey="6" title="" id="login">Log in</a></li>
 			<li><a href="#" accesskey="7" title="" id="register">Register</a></li>
+			<li><?php if($_SESSION['sloggedIn']=="yes"){ ?><a href="luokka.php" accesskey="8" title="">Luokka</a><?php } ?></li>
+			<li><?php if($_SESSION['sloggedIn']=="yes"){ ?><a href="logOutUser" accesskey="8" title="">Kirjaudu ulos</a><?php } ?></li>
 		</ul>
 	</div>
 </div>
@@ -60,10 +65,13 @@ Released   : 20130526
 		<h2>Kirjaudu sisään</h2>
 	  </div>
 	  <div class="modal-body">
-		<p>Voit kirjautua sisään tästä:</p>
-		<p>Käyttäjätunnus: <input type="text" id="A" name="c"></p><br/>
-		<p>Salasana: <input type="text" id="B" name="d"></p><br/>
-		<p>Tästä pääsee kirjautumaan: <button type="button">Kirjaudu</button></p>
+	  	<form method="post">
+			<p>Voit kirjautua sisään tästä:</p>
+			<p>Sähköposti: <input type="text" name="givenEmail" placeholder="S-posti" maxlength="40"></p><br/>
+			<p>Salasana: <input type="password" name="gPassword" placeholder="Salasanasi"></p><br/>
+			<p>Tästä pääsee kirjautumaan: <input type="submit" name="submitOpe" value ="Kirjaudu"></p>
+			<p>Palaa etusivulle: <input type="submit" name="submitBack" value="lopetus"/></p>
+		</form>
 	  </div>
 	  <div class="modal-footer">
 		<h3>Kakarat sykkiiii</h3>
@@ -80,7 +88,7 @@ Released   : 20130526
 		<form method="post">
 			<p>Voit rekisteröityä tästä:</p>
 			<p>Luokan numero: <input type="text" name="gLuokkaID" placeholder="Luokan nro" maxlength="10"></p><br/>
-			<p>Käyttäjätunnus: <input type="text" name="gUsername" placeholder="username min 4 chars" maxlength="40"></p><br/>
+			<p>Sähköpostiosoite: <input type="text" name="givenEmail" placeholder="Sähköpostiosoite" maxlength="40"></p><br/>
 			<p>Nimi: <input type="text" name="gName" placeholder="Anna nimesi" maxlength="40"></p><br/>
 			<p>Salasana: <input type="password" name="gPassword" placeholder="salasana max 40 merkkiä" maxlength="40"></p><br/>
 			<p>Salasana: <input type="password" name="gPasswordVerify" placeholder="salasana uudelleen" maxlength="40"></p><br/>
