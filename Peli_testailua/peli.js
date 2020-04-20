@@ -216,7 +216,7 @@ function updateGameArea() {
     ctx.fillRect(tilesArray[i].X, tilesArray[i].Y, tilesArray[i].Width, tilesArray[i].Height);
   }
   update(player);
-  document.getElementById("liikkuminen").innerHTML = "pysyt tekemään " + dice + " siirtoa";  
+  document.getElementById("liikkuminen").innerHTML = "pystyt tekemään " + dice + " siirtoa";  
 }
   
 function Dice(){
