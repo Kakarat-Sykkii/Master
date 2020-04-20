@@ -28,11 +28,10 @@ Released   : 20130526
             </div>
             <div id="menu">
                 <ul>
-                    <li><a href="index.php" accesskey="1" title="">Homepage</a></li>
+                    <li><a href="index.php" accesskey="1" title="">Etusivu</a></li>
                     <li><a href="pelilauta.php" accesskey="2" title="">Pelilauta</a></li>
                     <li class="current_page_item"><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
                     <li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li>
-                    <li><a href="#" accesskey="5" title="">Contact Us</a></li>
                 </ul>
             </div>
         </div>
@@ -47,16 +46,19 @@ Released   : 20130526
 
         <div class="flexcon">
 <div id="column1c">
-		<p><img src="images/aatukomea.jpeg" class="usimage"alt="" /></p>
-		<p><strong>Aatu Kotanen</strong> on ryhmän selkeästi komein ja lihaksikkain mies, myös fiksuin</p>
+		<p><img src="images/aatukomea.jpeg" class="usimage"alt="Kuva Aatusta" /></p>
+        <p><strong>Aatu Kotanen</strong> Toisen vuoden opiskelija, positiivinen liikunnan ystävä</p> 
+        <p><strong>Aatu.Kotanen@metropolia.fi</strong>
 		<a href="#" class="button">Read More</a> </div>
 	<div id="column2c">
-		<p><img src="images/ilkka.jpeg"class="usimage" alt="" /></p>
-		<p><strong>Ilkka Törmälä</strong> Vitun pyristelijä näätä, hänestä ei ole mihinkään</p>
+		<p><img src="images/ilkka.jpeg"class="usimage" alt="Kuva Ilkasta" /></p>
+        <p><strong>Ilkka Törmälä</strong> Toisen vuoden opiskelija, aina valmiina vastaamaan kysymyksiin.</p>
+        <p><strong>Ilkka.Tormala@metropolia.fi</strong>
 		<a href="#" class="button">Read More</a> </div>
 	<div id="column3c">
-		<p><img src="images/jussinaata.jpeg"class="usimage" alt="" /></p>
-		<p><strong>Jussi Salminen</strong> Näätä, asuu hoasin asunnossa ja ei maksa vuokraa</p>
+		<p><img src="images/jussinaata.jpeg"class="usimage" alt="Kuva jussista" /></p>
+        <p><strong>Jussi Salminen</strong> Toisen vuoden opiskelija, innokas ja auttavainen persoona.</p> 
+        <p><strong>Jussi.Salminen2@metropolia.fi</strong>
 		<a href="#" class="button">Read More</a> </div>
     </div>
 
