@@ -34,10 +34,6 @@ Released   : 20130526
 	<div id="logo">
         <h1><a href="#">Kakarat sykkii</a></h1>
         <div id="login2">
-    <ul>
-        <li><a href="#" accesskey="6" title="" id="login">Log in</a></li>
-        <li><a href="#" accesskey="7" title="" id="register">Register</a></li>
-    </ul>
 </div>
     </div>
         
