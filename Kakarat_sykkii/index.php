@@ -86,7 +86,7 @@ Released   : 20130526
 	  <div class="modal-body">
 		<form method="post">
 			<p>Voit rekisteröityä tästä:</p>
-			<p>Luokan numero: <input type="text" name="gLuokkaID" placeholder="Luokan nro" maxlength="10"></p><br/>
+			<!--<p>Luokan numero: <input type="text" name="gLuokkaID" placeholder="Luokan nro" maxlength="10"></p><br/>-->
 			<p>Sähköpostiosoite: <input type="text" name="givenEmail" placeholder="Sähköpostiosoite" maxlength="40"></p><br/>
 			<p>Nimi: <input type="text" name="gName" placeholder="Anna nimesi" maxlength="40"></p><br/>
 			<p>Salasana: <input type="password" name="gPassword" placeholder="salasana max 40 merkkiä" maxlength="40"></p><br/>
