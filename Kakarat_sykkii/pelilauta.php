@@ -33,7 +33,6 @@ Released   : 20130526
                 <li class="current_page_item"><a href="#" accesskey="2" title="">Pelilauta</a></li>
                 <li><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
                 <li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li>
-                <li><a href="#" accesskey="5" title="">Contact Us</a></li>
             </ul>
         </div>
     </div>
