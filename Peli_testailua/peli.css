@@ -1,8 +1,11 @@
 canvas {
     border: 1px solid black;
-    background-color: rgb(82, 59, 59);
-    /*width:100%;*/
-    margin: auto;
+    background-color: green;
+    background-image: url("kartta_Suomi.png");
+    max-width:100%;
+    background-size: 100%;
+    height: auto;
+    background-repeat: no-repeat;
 }
 
 body{
