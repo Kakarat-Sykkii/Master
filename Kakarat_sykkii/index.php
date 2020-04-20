@@ -1,7 +1,10 @@
 <?php
+	include("config/start.php");
 	include_once("config/config.php");
-	session_start();
 	include_once("forms/register.php");
+	include_once("forms/login.php");
+	include("includes/inav.php");
+	session_start();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
@@ -37,18 +40,21 @@ Released   : 20130526
 			<li><a href="pelilauta.php" accesskey="2" title="">Pelilauta</a></li>
 			<li><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
 			<li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li><br/>
-			<li><a href="#" accesskey="5" title="">Contact Us</a></li>
 			<li><a href="#" accesskey="6" title="" id="login">Log in</a></li>
 			<li><a href="#" accesskey="7" title="" id="register">Register</a></li>
+			<li><?php if($_SESSION['sloggedIn']=="yes"){ ?><a href="luokka.php" accesskey="8" title="">Luokka</a><?php } ?></li>
+			<li><?php if($_SESSION['sloggedIn']=="yes"){ ?><a href="logOutUser" accesskey="8" title="">Kirjaudu ulos</a><?php } ?></li>
 		</ul>
 	</div>
 </div>
 <div id="welcome" class="wrapper-style1">
 	<div class="title">
 		<h2>Ryhmä 6 Sykkii</h2>
-		<span class="byline">Ryhmäläiset: Ilkka Jussi Aatu</span> </div>
-	<a href="#" class="image image-full"><img src="images/Aatu 10 v.jpeg" alt="" /></a>
-	<p>This is <strong>UpRight</strong>, a free, fully standards-compliant CSS template designed by <a href="http://www.freecsstemplates.org/" rel="nofollow">FreeCSSTemplates.org</a>..   The photos in this template are from <a href="http://fotogrph.com/"> Fotogrph</a>. This free template is released under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attributions 3.0</a> license, so you are pretty much free to do whatever you want with it (even use it commercially) provided you keep the links in the footer intact. Aside from that, have fun with it :) </p>
+		<span class="byline">Ryhmäläiset: Ilkka, Jussi & Aatu</span> </div>
+	<a href="#" class="image image-full"><img src="images/lapset2.jpg" alt="kuva lapsista leikkimässä" /></a>
+    <p><strong>Kakarat Sykkii</strong>- sovelluksen on tarkoitus saada sinut ja sinun kaverisi liikkumaan yhdessä, ja liikunnan avulla tavoitella mahtavia palkintoja jännittävässä kilpailussa.
+    Liikunta on tärkeää kaikille, varsinkin lapsille. Koulupäivät voivat joskus tuntua pitkiltä ja tylsiltä mutta liikunnan avulla mieli pysyy virkeänä ja jaksaa oppia uusia asioita!
+    <a>Ota siis rohkeasti ystäväsi mukaan ja tule kokeilemaan!</a></p>
 </div>
 
 <!--Login popup code-->
@@ -59,10 +65,13 @@ Released   : 20130526
 		<h2>Kirjaudu sisään</h2>
 	  </div>
 	  <div class="modal-body">
-		<p>Voit kirjautua sisään tästä:</p>
-		<p>Käyttäjätunnus: <input type="text" id="A" name="c"></p><br/>
-		<p>Salasana: <input type="text" id="B" name="d"></p><br/>
-		<p>Tästä pääsee kirjautumaan: <button type="button">Kirjaudu</button></p>
+	  	<form method="post">
+			<p>Voit kirjautua sisään tästä:</p>
+			<p>Sähköposti: <input type="text" name="givenEmail" placeholder="S-posti" maxlength="40"></p><br/>
+			<p>Salasana: <input type="password" name="gPassword" placeholder="Salasanasi"></p><br/>
+			<p>Tästä pääsee kirjautumaan: <input type="submit" name="submitOpe" value ="Kirjaudu"></p>
+			<p>Palaa etusivulle: <input type="submit" name="submitBack" value="lopetus"/></p>
+		</form>
 	  </div>
 	  <div class="modal-footer">
 		<h3>Kakarat sykkiiii</h3>
@@ -79,7 +88,7 @@ Released   : 20130526
 		<form method="post">
 			<p>Voit rekisteröityä tästä:</p>
 			<p>Luokan numero: <input type="text" name="gLuokkaID" placeholder="Luokan nro" maxlength="10"></p><br/>
-			<p>Käyttäjätunnus: <input type="text" name="gUsername" placeholder="username min 4 chars" maxlength="40"></p><br/>
+			<p>Sähköpostiosoite: <input type="text" name="givenEmail" placeholder="Sähköpostiosoite" maxlength="40"></p><br/>
 			<p>Nimi: <input type="text" name="gName" placeholder="Anna nimesi" maxlength="40"></p><br/>
 			<p>Salasana: <input type="password" name="gPassword" placeholder="salasana max 40 merkkiä" maxlength="40"></p><br/>
 			<p>Salasana: <input type="password" name="gPasswordVerify" placeholder="salasana uudelleen" maxlength="40"></p><br/>
@@ -94,27 +103,7 @@ Released   : 20130526
 
   
 
-<div id="portfolio" class="wrapper-style1">
-	<div class="title">
-		<h2>Suspendisse lacus turpis</h2>
-		<span class="byline">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</span> </div>
-	<div id="column1">
-		<p><a href="#" class="image image-full"><img src="images/Aatu 10 v.jpeg" alt="" /></a></p>
-		<p>Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Mauris quam enim, molestie.</p>
-		<a href="#" class="button">Read More</a> </div>
-	<div id="column2">
-		<p><a href="#" class="image image-full"><img src="images/Aatu 10 v.jpeg" alt="" /></a></p>
-		<p>Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Mauris quam enim, molestie.</p>
-		<a href="#" class="button">Read More</a> </div>
-	<div id="column3">
-		<p><a href="#" class="image image-full"><img src="images/Aatu 10 v.jpeg" alt="" /></a></p>
-		<p>Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Mauris quam enim, molestie.</p>
-		<a href="#" class="button">Read More</a> </div>
-	<div id="column4">
-		<p><a href="#" class="image image-full"><img src="images/Aatu 10 v.jpeg" alt="" /></a></p>
-		<p>Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Mauris quam enim, molestie.</p>
-		<a href="#" class="button">Read More</a> </div>
-</div>
+
 <div id="page">
 	<div id="content"></div>
 	<div id="sidebar"></div>
@@ -123,7 +112,7 @@ Released   : 20130526
 	<div>
 		<div class="title">
 			<h2>Get in touch</h2>
-			<span class="byline">Phasellus nec erat sit amet nibh pellentesque congue</span> </div>
+			<span class="byline">Hyödyllisiä linkkejä sinulle</span> </div>
 		<ul class="contact">
 			<li><a href="#" class="icon icon-twitter"><span>Twitter</span></a></li>
 			<li><a href="#" class="icon icon-facebook"><span></span></a></li>
