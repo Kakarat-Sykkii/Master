@@ -38,7 +38,10 @@ Released   : 20130526
 </div>
     </div>
         
-	<div id="menu">
+	<div id="page-nav">
+        <label for="hamburger">&#9776;</label>
+        <input type="checkbox" id="hamburger"/>
+  
 		<ul>
 			<li class="current_page_item"><a href="#" accesskey="1" title="">Etusivu</a></li>
 			<li><a href="pelilauta.php" accesskey="2" title="">Pelilauta</a></li>
@@ -51,8 +54,8 @@ Released   : 20130526
 	<div class="title">
 		<h2>Ryhmä 6 Sykkii</h2>
 		<span class="byline">Ryhmäläiset: Ilkka, Jussi & Aatu</span> </div>
-	<a href="#" class="image image-full"><img src="images/lapset2.jpg" alt="kuva lapsista leikkimässä" /></a>
-    <p><strong>Kakarat Sykkii</strong>- sovelluksen on tarkoitus saada sinut ja sinun kaverisi liikkumaan yhdessä, ja liikunnan avulla tavoitella mahtavia palkintoja jännittävässä kilpailussa.
+	<a href="#" class="image image-eifull"><img src="images/lapset2.jpg" alt="kuva lapsista leikkimässä" /></a>
+    <p class="pkapee"><strong>Kakarat Sykkii</strong>- sovelluksen on tarkoitus saada sinut ja sinun kaverisi liikkumaan yhdessä, ja liikunnan avulla tavoitella mahtavia palkintoja jännittävässä kilpailussa.
     Liikunta on tärkeää kaikille, varsinkin lapsille. Koulupäivät voivat joskus tuntua pitkiltä ja tylsiltä mutta liikunnan avulla mieli pysyy virkeänä ja jaksaa oppia uusia asioita!
     <a>Ota siis rohkeasti ystäväsi mukaan ja tule kokeilemaan!</a></p>
 </div>
