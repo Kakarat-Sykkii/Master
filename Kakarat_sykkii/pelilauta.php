@@ -25,7 +25,7 @@ Released   : 20130526
 
     <div id="header" class="container">
         <div id="logo">
-            <h1><a href="index.html">Kakarat sykkii</a></h1>
+            <h1><a href="index.php">Kakarat sykkii</a></h1>
         </div>
         <div id="menu">
             <ul>
