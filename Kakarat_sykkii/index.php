@@ -34,10 +34,10 @@ Released   : 20130526
 	<div id="logo">
         <h1><a href="#">Kakarat sykkii</a></h1>
         <div id="login2">
-    <ul>
+    <!--<ul>
         <li><a href="#" accesskey="6" title="" id="login">Kirjaudu</a></li>
         <li><a href="#" accesskey="7" title="" id="register">Rekisteröidy</a></li>
-    </ul>
+    </ul></!-->
 </div>
     </div>
         
