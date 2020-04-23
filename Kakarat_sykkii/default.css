@@ -600,14 +600,14 @@ hr
 .wrapper-style1
 {
 	overflow: hidden;
-	width: 1200px;
+	/**width: 1200px;*/
 	margin: 0px auto;
 	padding: 3em 0em;
 }
 
 .container
 {
-	width: 1200px;
+	/*width: 1200px;*/
 	margin: 0px auto;
 }
 
@@ -626,7 +626,13 @@ hr
 			display: block;
 			width: 100%;
 		}
-
+		.image-eifull
+		{
+			display: block;
+			width: 80%;
+			margin-left: auto;
+			margin-right: auto;
+		}
 	.image-full
 	{
 		display: block;
@@ -661,7 +667,7 @@ hr
 	position: relative;
 	margin-bottom: 3em;
 	height: 13em;
-	border-bottom: 1px solid #dbdbdb;
+	/*border-bottom: 1px solid #dbdbdb;*/
 }
 
 /*********************************************************************************/
@@ -686,6 +692,13 @@ hr
 	font-weight: 900;
 	color: #404040;
 }
+@media only screen and (max-width: 635px) {
+	#logo h1 {
+		
+	  font-weight: 900;
+	  font-size: 1.5em;
+	}
+  }
 
 .homepage #logo h1
 {
@@ -780,6 +793,13 @@ hr
 	display: flex;
 	justify-content: space-around;
 }
+@media screen and (max-width: 1072px){
+	.flexcon{
+		flex-direction: column;
+		align-items: center;
+		
+	}
+}
 
 /**vinkkejä sivun container*/
 .flexconv
@@ -810,8 +830,10 @@ hr
 /** login linkit*/
 #login2
 {
-	height: 200px;
-	width: 12%;
+	height: 50px;
+	min-width: 140px;
+	max-width: 140px;
+	background-color: lightblue;
 }
 #login2 li a, #login2 li span
 {
@@ -916,6 +938,16 @@ hr
 	float: left;
 	width: 282px;
 }
+@media screen and (max-width: 1072px){
+#column1,
+#column2,
+#column3,
+#column4{
+	padding-top: 15px;
+	padding-bottom: 15px;
+		
+	}
+}
 
 #column1c,
 #column2c,
@@ -926,6 +958,15 @@ hr
 	text-align: center;
 	margin-right: 24px;
 }
+@media screen and (max-width: 1072px){
+	#column1c,
+	#column2c,
+	#column3c{
+		padding-top: 15px;
+		padding-bottom: 15px;
+			
+		}
+	}
 
 #column3
 {
@@ -1016,4 +1057,91 @@ hr
     background-size: 100%;
     height: auto;
     background-repeat: no-repeat;
+  }
+/****oma menu*******************************/
+/****source http://users.metropolia.fi/~ullamu/media-alustat/lounari/css/mobile.css*******************************/
+#page-nav {
+	float: right;
+	/*background: rgb(89, 89, 90);
+	/* If you want the navigation bar to stick on top*/
+	position: sticky;
+	top: 0;
+	z-index: 1;
+
+  }
+  
+  /* Hide Hamburger */
+  #page-nav label, #hamburger {
+	display: none;
+  }
+  
+  /* Menu Items */
+  #page-nav ul {
+	list-style-type: none;
+	margin: 15;
+	padding: 0; 
+  }
+  #page-nav ul li {
+	display: inline-block;
+	padding: 15px;
+	box-sizing: border-box;
+  }
+  #page-nav ul li a {
+	/**color: #fff;
+	text-decoration: none;*/
+	display: block;
+	padding: 0.80em 1.5em;
+	text-decoration: none;
+	font-size: 1em;
+	font-weight: 700;
+	text-transform: uppercase;
+	outline: 0;
+	color: #595959;
+  }
+  
+  /* [ON SMALL SCREENS] */
+  @media screen and (max-width: 768px){
+	/* Show Hamburger */
+	#page-nav label {
+	  display: inline-block;
+	  color: #fff;
+	  background: lightblue;
+	  font-style: normal;
+	  font-size: 1.2em;
+	  padding: 10px;
+	}
+  
+	/* Break down menu items into vertical */
+	#page-nav ul li {
+	  display: block;
+	}
+	#page-nav ul li {
+	  border-top: 1px solid #333;
+	}
+  
+	/* Toggle show/hide menu on checkbox click */
+	#page-nav ul {
+	  display: none;
+	}
+	#page-nav input:checked ~ ul {
+	  display: block;
+	}
+  }
+  #page-nav li:hover a,  #page-nav li.active a,  #page-nav li.active span
+{
+	background-color: rgba(179, 179, 179, 0.575);
+	transition: all 0.3s ease;
+}
+
+#page-nav .current_page_item a
+{
+	background: lightblue;
+	border-radius: 15px;
+	color: #FFF;
+}
+
+/** p setitykset rehhellisesti*/
+#pkapee
+{
+	
 }

@@ -28,7 +28,9 @@ Released   : 20130526
 	<div id="logo">
 		<h1><a href="index.php">Kakarat sykkii</a></h1>
 	</div>
-	<div id="menu">
+	<div id="page-nav">
+        <label for="hamburger">&#9776;</label>
+        <input type="checkbox" id="hamburger"/>
 		<ul>
 			<li><a href="index.php" accesskey="1" title="">Kotisivu</a></li>
 			<li><a href="pelilauta.php" accesskey="2" title="">Pelilauta</a></li>
@@ -61,7 +63,7 @@ Released   : 20130526
             <a href="https://leikkipankki.xn--leikkipiv-12ac.fi/Leikit/Tiedot/640" class="button">Haluatko tietää lisää?</a> </div>
         <div id="column4">
             <p style="height: 150px;"><a class="image image-full"><img src="images/häntä.jpg" alt="kuva lapsista leikkimässä hännänryöstöä" height="120px" width="80px"/></a></p>
-            <p>Oletko koskaan pelannut hännän ryöstöä? se on kivaa!.</p>
+            <p>Oletko koskaan pelannut hännän ryöstöä? Se on kivaa!</p>
             <a href="https://leikkipankki.xn--leikkipiv-12ac.fi/Leikit/Tiedot/633" class="button">Haluatko tietää lisää?</a> </div>
     </div>
 </div> 

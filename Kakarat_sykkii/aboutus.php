@@ -26,7 +26,9 @@ Released   : 20130526
             <div id="logo">
                 <h1><a href="index.php">Kakarat sykkii</a></h1>
             </div>
-            <div id="menu">
+            <div id="page-nav">
+                <label for="hamburger">&#9776;</label>
+                <input type="checkbox" id="hamburger"/>
                 <ul>
                     <li><a href="index.php" accesskey="1" title="">Etusivu</a></li>
                     <li><a href="pelilauta.php" accesskey="2" title="">Pelilauta</a></li>
