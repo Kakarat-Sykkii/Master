@@ -692,6 +692,13 @@ hr
 	font-weight: 900;
 	color: #404040;
 }
+@media only screen and (max-width: 635px) {
+	#logo h1 {
+		
+	  font-weight: 900;
+	  font-size: 1.5em;
+	}
+  }
 
 .homepage #logo h1
 {
@@ -785,6 +792,13 @@ hr
 {
 	display: flex;
 	justify-content: space-around;
+}
+@media screen and (max-width: 1072px){
+	.flexcon{
+		flex-direction: column;
+		align-items: center;
+		
+	}
 }
 
 /**vinkkejä sivun container*/
@@ -924,6 +938,16 @@ hr
 	float: left;
 	width: 282px;
 }
+@media screen and (max-width: 1072px){
+#column1,
+#column2,
+#column3,
+#column4{
+	padding-top: 15px;
+	padding-bottom: 15px;
+		
+	}
+}
 
 #column1c,
 #column2c,
@@ -934,6 +958,15 @@ hr
 	text-align: center;
 	margin-right: 24px;
 }
+@media screen and (max-width: 1072px){
+	#column1c,
+	#column2c,
+	#column3c{
+		padding-top: 15px;
+		padding-bottom: 15px;
+			
+		}
+	}
 
 #column3
 {
