@@ -1,7 +1,7 @@
 canvas {
     border: 1px solid black;
     background-color: green;
-    background-image: url("kartta_Suomi.png");
+    /*background-image: url("kartta_Suomi.png");*/
     max-width:100%;
     background-size: 100%;
     height: auto;

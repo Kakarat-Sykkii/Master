@@ -6,6 +6,7 @@ var tile = "tile";
 var player;
 var check;
 var dice = 0;
+var backGround;
 
 //alussa luodaan pelin komponentit
 function startGame() {
@@ -70,9 +71,10 @@ function startGame() {
 
   //pelaaja
   player = new Component(20, 20, "red", 30, 30);
+  backGround = new component  (1000, 500, "kartta_Suomi.png", 100, 100, "image");
 }
 
-// W3schoolsilta kopioitu jolla luodaan canvasille kappale
+// W3schoolsilta kopioitu jolla luodaan canvasille kappale + gettterit ja setterit
 class Component {
   constructor(width, height, color, x, y) {
     this.width = width;
@@ -162,6 +164,7 @@ function movedown(){
   }
 }
 
+//katotaan onko pelaaja pelilaatalla 
 function posCheck(){
 
   var i;
@@ -208,14 +211,15 @@ var myGameArea = {
 // päivitetään peli alueella tapahtuneet muutokset
 function updateGameArea() {
   myGameArea.clear();
-
   ctx = myGameArea.context;
+
   var i;
   for(i = 0; i < tilesArray.length; i++){
     ctx.fillStyle = tilesArray[i].Color;
     ctx.fillRect(tilesArray[i].X, tilesArray[i].Y, tilesArray[i].Width, tilesArray[i].Height);
-  }
+  }  
   update(player);
+  update(backGround);
   document.getElementById("liikkuminen").innerHTML = "pysyt tekemään " + dice + " siirtoa";  
 }
   
