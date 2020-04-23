@@ -32,12 +32,23 @@ function startGame() {
       tilesArray.push(tileName)
       i++;
   }
+  
+  i = 1;
+  posX = 20;
+  posY = 1160;
+  while(i < 11){
+      var tileName = tile + posX + posY; 
+      tileName = new Component(40, 40, "white", posX, posY);
+      posX = posX + 60;
+      tilesArray.push(tileName)
+      i++;
+  }
 
   // vasen laatta palkki    
   i = 1;
   posX = 20;
   posY = 80;
-  while(i < 9){
+  while(i < 20){
       var tileName = tile + posX + posY; 
       tileName = new Component(40, 40, "white", posX, posY);
       posY = posY + 60;
@@ -49,7 +60,7 @@ function startGame() {
   i = 1;
   posX = 560;
   posY = 80;
-  while(i < 9){
+  while(i < 20){
       var tileName = tile + posX + posY; 
       tileName = new Component(40, 40, "white", posX, posY);
       posY = posY + 60;
@@ -183,7 +194,7 @@ var myGameArea = {
   canvas : document.createElement("canvas"),
   start : function() {
       this.canvas.width = 620;
-      this.canvas.height = 620;
+      this.canvas.height = 1240;
       this.context = this.canvas.getContext("2d");
       var peliarea = document.getElementById('peliarea');
       peliarea.insertBefore(this.canvas, peliarea.firstChild);
@@ -205,7 +216,7 @@ function updateGameArea() {
     ctx.fillRect(tilesArray[i].X, tilesArray[i].Y, tilesArray[i].Width, tilesArray[i].Height);
   }
   update(player);
-  document.getElementById("liikkuminen").innerHTML = "pysyt tekemään " + dice + " siirtoa";  
+  document.getElementById("liikkuminen").innerHTML = "pystyt tekemään " + dice + " siirtoa";  
 }
   
 function Dice(){

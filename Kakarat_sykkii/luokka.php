@@ -1,3 +1,10 @@
+<?php
+    include("config/start.php");
+	include_once("config/config.php");
+    include("includes/inav.php");
+	/*session_start();*/
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Design by Free CSS Templates
@@ -41,6 +48,32 @@ Released   : 20130526
             <h2>Luokan tekeminen</h2>
         </div>
     </div>        
+    <fieldset><legend>Lisää luokka</legend>
+
+    <?php
+
+    ?>
+    
+
+
+    <?php
+    try{
+        $sql = "SELECT COUNT(*) FROM KS_luokka where OpettajaID = " . "'".$_SESSION['sOpettajaID']."'";
+        $kysely=$DBH->prepare($sql);
+        $kysely->execute();				
+        $tulos=$kysely->fetch();
+        if($tulos[0] == 0){ //email ei ole käytössä
+            include("forms/classcreate.php");
+        }else{
+            include("forms/addstudent.php");
+        }
+    }catch(PDOException $e) {
+        file_put_contents('log/DBErrors.txt', 'signInUser.php: '.$e->getMessage()."\n", FILE_APPEND);
+        $_SESSION['swarningInput'] = 'Database problem';
+    }
+
+    ?>
+
 
 </body>
 </html>
