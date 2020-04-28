@@ -11,3 +11,12 @@ canvas {
 body{
     background-color: #a52a2a;
 }
+
+#invisible{
+    display:none;
+}
+
+#source{
+    width: 620;
+    height: 1240;
+}
