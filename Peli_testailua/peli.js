@@ -6,7 +6,7 @@ var tile = "tile";
 var player;
 var check;
 var dice = 0;
-var backGround;
+const image = document.getElementById('source');
 
 //alussa luodaan pelin komponentit
 function startGame() {
@@ -71,7 +71,6 @@ function startGame() {
 
   //pelaaja
   player = new Component(20, 20, "red", 30, 30);
-  backGround = new component  (1000, 500, "kartta_Suomi.png", 100, 100, "image");
 }
 
 // W3schoolsilta kopioitu jolla luodaan canvasille kappale + gettterit ja setterit
@@ -212,6 +211,7 @@ var myGameArea = {
 function updateGameArea() {
   myGameArea.clear();
   ctx = myGameArea.context;
+  ctx.drawImage(image, -100, -100);
 
   var i;
   for(i = 0; i < tilesArray.length; i++){
@@ -219,8 +219,7 @@ function updateGameArea() {
     ctx.fillRect(tilesArray[i].X, tilesArray[i].Y, tilesArray[i].Width, tilesArray[i].Height);
   }  
   update(player);
-  update(backGround);
-  document.getElementById("liikkuminen").innerHTML = "pysyt tekemään " + dice + " siirtoa";  
+  document.getElementById("liikkuminen").innerHTML = "pystyt tekemään " + dice + " siirtoa";  
 }
   
 function Dice(){
