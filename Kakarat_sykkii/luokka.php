@@ -33,13 +33,15 @@ Released   : 20130526
         <div id="logo">
             <h1><a href="index.html">Kakarat sykkii</a></h1>
         </div>
-        <div id="menu">
+        <div id="page-nav">
+            <label for="hamburger">&#9776;</label>
+            <input type="checkbox" id="hamburger"/>
             <ul>
                 <li><a href="index.php" accesskey="1" title="">Homepage</a></li>
-                <li class="current_page_item"><a href="#" accesskey="2" title="">Pelilauta</a></li>
+                <li><a href="#" accesskey="2" title="">Pelilauta</a></li>
                 <li><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
                 <li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li>
-                <li><a href="#" accesskey="5" title="">Contact Us</a></li>
+
             </ul>
         </div>
     </div>
