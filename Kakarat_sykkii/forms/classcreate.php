@@ -1,3 +1,4 @@
+<fieldset>Lisää luokka</fieldset>
 <?php
         if(!isset($_GET['submitLuokka'])){
             include("forms/nimiLomake.php");
