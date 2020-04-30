@@ -9,7 +9,10 @@
     <img id="source"
          src="kartta_Suomi.png">
   </div>
-<body onload="startGame()">
+  <div id="talletettava"></div>
+  <div id="talletettu"></div>
+
+  <body onload="startGame()">
     <h1 id = liikkuminen></h1>
 <script src="peli.js"></script>
 <div id="peliarea"></div>
@@ -18,4 +21,7 @@
 <button onclick="moveleft()">LEFT</button>
 <button onclick="moveright()">RIGHT</button>
 <button onclick="Dice()">Heitä noppaa</button>
+<button onclick="save()">tallenna tilanne</button>
+<button onclick="getsave()">hae vanha tilannne</button>
+
 </body>
