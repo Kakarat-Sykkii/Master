@@ -47,9 +47,39 @@ Released   : 20130526
     </div>
     <div id="welcome" class="wrapper-style1">
         <div class="title">
-            <h2>Pistelaskuri</h2>
+            <h2>Pistelaskuri oppilaille</h2>
         </div>
     </div>        
+    <form method="post">
+        <p>
+            Anna keskisyke: <input type="text" name="givenHBR"/>
+        </p>
+        <p>
+            <input type="submit" name="submitpisteet" value="Lisää"/>
+        </p>
+    </form>
+    <?php
+        
+        $_SESSION['HBR']=$_POST['givenHBR'];
+        $dividend = $_SESSION['HBR']; 
+        $divisor = 15; 
+        $_SESSION['Pisteet'] = intdiv($dividend, $divisor); 
+        /*echo("$_SESSION['Pisteet']");*/
+        
+        if(isset($POST['submitpisteet'])){
+            $data['opisteet'] = $_SESSION['Pisteet'];
+            try{
+                //kysely
+                $STH = $DBH->prepare("UPDATE KS_oppilas SET Pisteet = 'opisteet' WHERE OppilasID = " . "'".$_SESSION['oID']."'");
+                $STH->execute($data);
+                //Palataan takaisin tälle sivulle
+                header("Location: pistelaskuri.php");
+            } catch(PDOException $e) {
+                file_put_contents('log/DBErrors.txt', 'studentadder.php: '.$e->getMessage()."\n", FILE_APPEND);
+                echo "Tallennusvirhe: " . $e->getMessage();
+            }
+        }
+    ?>
 
 </body>
 </html>
