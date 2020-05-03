@@ -5,7 +5,7 @@ if(isset($_POST['submitStudent'])){
      try {
       //Tiedot kannasta, hakuehto
       $data['oName'] = $_POST['goName'];
-      $STH = $DBH->prepare("SELECT Oppilastunnus, Oppilassalasana, Pisteet, Käytetyt_pisteet FROM KS_oppilas WHERE Oppilastunnus = :oName;");
+      $STH = $DBH->prepare("SELECT OppilasID, Oppilastunnus, Oppilassalasana, Pisteet, Käytetyt_pisteet FROM KS_oppilas WHERE Oppilastunnus = :oName;");
       $STH->execute($data);
       $STH->setFetchMode(PDO::FETCH_OBJ);
       $tulosOlio=$STH->fetch();
@@ -18,6 +18,7 @@ if(isset($_POST['submitStudent'])){
          // var_dump($tulosOlio);
           if(($tulosOlio->Oppilassalasana)){
               $_SESSION['ologgedIn']="yes";
+              $_SESSION['oID']=$tulosOlio->OppilasID;
               $_SESSION['oname']=$tulosOlio->Oppilastunnus;
               $_SESSION['opisteet']=$tulosOlio->Pisteet;
               $_SESSION['okpisteet']=$tulosOlio->Käytetyt_pisteet;

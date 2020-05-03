@@ -40,7 +40,10 @@ Released   : 20130526
                     <li><a href="pelilauta.php" accesskey="2" title="">Pelilauta</a></li>
                     <li class="current_page_item"><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
                     <li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li>
-                    <li><?php if($_SESSION['sloggedIn']=="yes"){ ?><a href="luokka.php" accesskey="8" title="">Luokka</a><?php } ?></li>
+                    <?php if($_SESSION['sloggedIn']=="yes"){ ?><li><a href="luokka.php" accesskey="8" title="">Luokka</a></li><?php } ?>
+                    <?php if($_SESSION['ologgedIn']=="yes"){ ?><li><a href="pistelaskuri.php" accesskey="10" title="">Pistelaskuri</a></li><?php } ?>
+                    <?php if($_SESSION['sloggedIn']=="yes"){ ?><li><a href="logOutUser.php" accesskey="8" title="">Kirjaudu ulos</a></li><?php } ?>
+                    <?php if($_SESSION['ologgedIn']=="yes"){ ?><li><a href="logOutUser.php" accesskey="8" title="">Kirjaudu ulos</a></li><?php } ?>
                 </ul>
             </div>
         </div>

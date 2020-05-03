@@ -41,7 +41,7 @@ Released   : 20130526
                 <li><a href="#" accesskey="2" title="">Pelilauta</a></li>
                 <li><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
                 <li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li><br/>
-                <li class="current_page_item"><a href="luokka.php" accesskey="5" title="">Luokka</a></li>
+                <li class="current_page_item"><?php if($_SESSION['sloggedIn']=="yes"){ ?><a href="luokka.php" accesskey="9" title="">Luokka</a><?php } ?></li>
                 <li><?php if($_SESSION['sloggedIn']=="yes"){ ?><a href="logOutUser" accesskey="8" title="">Kirjaudu ulos</a><?php } ?></li>
             </ul>
         </div>

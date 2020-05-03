@@ -39,9 +39,10 @@ Released   : 20130526
                 <li><a href="#" accesskey="2" title="">Pelilauta</a></li>
                 <li><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
                 <li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li><br/>
-                <li><a href="luokka.php" accesskey="5" title="">Luokka</a></li>
-                <li class="current_page_item"><?php if($_SESSION['ologgedIn']=="yes"){ ?><a href="pistelaskuri.php" accesskey="10" title="">Pistelaskuri</a><?php } ?></li>
-                <li><?php if($_SESSION['sloggedIn']=="yes"){ ?><a href="logOutUser" accesskey="8" title="">Kirjaudu ulos</a><?php } ?></li>
+                <?php if($_SESSION['sloggedIn']=="yes"){ ?><li><a href="luokka.php" accesskey="9" title="">Luokka</a></li><?php } ?>
+                <?php if($_SESSION['ologgedIn']=="yes"){ ?><li class="current_page_item"><a href="pistelaskuri.php" accesskey="10" title="">Pistelaskuri</a></li><?php } ?>
+                <?php if($_SESSION['sloggedIn']=="yes"){ ?><li><a href="logOutUser.php" accesskey="8" title="">Kirjaudu ulos</a></li><?php } ?>
+                <?php if($_SESSION['ologgedIn']=="yes"){ ?><li><a href="logOutUser.php" accesskey="8" title="">Kirjaudu ulos</a></li><?php } ?>
             </ul>
         </div>
     </div>
@@ -59,26 +60,22 @@ Released   : 20130526
         </p>
     </form>
     <?php
-        
-        $_SESSION['HBR']=$_POST['givenHBR'];
-        $dividend = $_SESSION['HBR']; 
-        $divisor = 15; 
-        $_SESSION['Pisteet'] = intdiv($dividend, $divisor); 
-        /*echo("$_SESSION['Pisteet']");*/
-        
-        if(isset($POST['submitpisteet'])){
-            $data['opisteet'] = $_SESSION['Pisteet'];
-            try{
-                //kysely
-                $STH = $DBH->prepare("UPDATE KS_oppilas SET Pisteet = 'opisteet' WHERE OppilasID = " . "'".$_SESSION['oID']."'");
-                $STH->execute($data);
-                //Palataan takaisin tälle sivulle
-                header("Location: pistelaskuri.php");
-            } catch(PDOException $e) {
-                file_put_contents('log/DBErrors.txt', 'studentadder.php: '.$e->getMessage()."\n", FILE_APPEND);
-                echo "Tallennusvirhe: " . $e->getMessage();
-            }
+        if(isset($_POST['submitpisteet'])){
+            $_SESSION['HBR']=$_POST['givenHBR'];
+            $divident = $_SESSION['HBR']; 
+            echo("jakaja" . $_SESSION['HBR']);
+            $divirer = 15; 
+            $data['opisteet'] = floor($divident / $divirer); 
+            //$_SESSION['Pisteet'] = floor($divident / $divirer); 
+            //$data['opisteet'] = $_SESSION['Pisteet'];
+            $data['toimi'] = $_SESSION['oID'];
+            $STH = $DBH->prepare("UPDATE KS_oppilas SET Pisteet = :opisteet WHERE OppilasID = :toimi ");
+            $STH->execute($data);
+            //Palataan takaisin tälle sivulle
+            //header("Location: pistelaskuri.php");
         }
+        echo($_SESSION['oID']);
+        //echo($_POST['givenHBR'] / $divirer);
     ?>
 
 </body>
