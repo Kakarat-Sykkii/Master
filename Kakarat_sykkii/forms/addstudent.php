@@ -1,9 +1,12 @@
-<form method="get">
+<form method="post">
     <p>
-        Tänne tulee mahdollisuus lisätä oppilaiden käyttäjiä
+        Oppilaan tunnus: <input type="text" name="givenSname"/>
     </p>
     <p>
-        <input type="submit" name="submitLuokka" value="Lisää"/>
-        <input type="reset" name="submittaus" value="Tyhjennä terveystiedot"/>
+        Oppilaan salasana: <input type="text" name="givenSpassword"/>
+    </p>
+    <p>
+        <input type="submit" name="submitOppilas" value="Lisää"/>
+        <input type="reset" name="rese" value="Tyhjennä alueet"/>
     </p>
 </form>

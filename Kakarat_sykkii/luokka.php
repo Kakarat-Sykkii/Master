@@ -37,11 +37,12 @@ Released   : 20130526
             <label for="hamburger">&#9776;</label>
             <input type="checkbox" id="hamburger"/>
             <ul>
-                <li><a href="index.php" accesskey="1" title="">Homepage</a></li>
+                <li><a href="index.php" accesskey="1" title="">Etusivu</a></li>
                 <li><a href="#" accesskey="2" title="">Pelilauta</a></li>
                 <li><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
-                <li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li>
-
+                <li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li><br/>
+                <li class="current_page_item"><?php if($_SESSION['sloggedIn']=="yes"){ ?><a href="luokka.php" accesskey="9" title="">Luokka</a><?php } ?></li>
+                <li><?php if($_SESSION['sloggedIn']=="yes"){ ?><a href="logOutUser" accesskey="8" title="">Kirjaudu ulos</a><?php } ?></li>
             </ul>
         </div>
     </div>
@@ -50,30 +51,49 @@ Released   : 20130526
             <h2>Luokan tekeminen</h2>
         </div>
     </div>        
-    <fieldset><legend>Lisää luokka</legend>
-
-    <?php
-
-    ?>
     
-
-
     <?php
     try{
         $sql = "SELECT COUNT(*) FROM KS_luokka where OpettajaID = " . "'".$_SESSION['sOpettajaID']."'";
         $kysely=$DBH->prepare($sql);
         $kysely->execute();				
         $tulos=$kysely->fetch();
-        if($tulos[0] == 0){ //email ei ole käytössä
+        if($tulos[0] == 0){ //opettajalla ei ole vielä luokkaa
             include("forms/classcreate.php");
         }else{
-            include("forms/addstudent.php");
+            include("forms/studentadder.php");
+            /*include("forms/studentadder.php");*/
         }
+
     }catch(PDOException $e) {
-        file_put_contents('log/DBErrors.txt', 'signInUser.php: '.$e->getMessage()."\n", FILE_APPEND);
+            file_put_contents('log/DBErrors.txt', 'signInUser.php: '.$e->getMessage()."\n", FILE_APPEND);
         $_SESSION['swarningInput'] = 'Database problem';
     }
+    ?>
 
+    <!--Luokan oppilaat -->
+    <?php
+       $sql="SELECT * FROM	KS_oppilas WHERE LuokkaID = " . "'".$_SESSION['oLuokkaID']."'";
+       $kysely=$DBH->prepare($sql);				
+       $kysely->execute();
+           echo("<h2>Luokan oppilaat</h2>");
+       
+           foreach($DBH->query('SELECT COUNT(*) FROM KS_oppilas') as $row) {
+               echo "<p>Luokassa on  " . $row['COUNT(*)'] . " oppilasta</p>";
+               }
+       
+           echo("<table>
+               <tr>
+                   <th>Nimi</th>
+                   <th>Salasana</th>
+                   <th>Pisteet</th>
+               </tr>");
+           while	($row=$kysely->fetch()){	
+                   echo("<tr><td>".$row["Oppilastunnus"]."</td>
+                   <td>".$row["Oppilassalasana"]."</td>
+                   <td>".$row["Pisteet"]."</td>");
+               }
+           echo("</table>");
     ?>
 
 
