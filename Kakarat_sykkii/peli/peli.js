@@ -119,7 +119,7 @@ function save(){
     //tallennetaan array ajaxin avulla
     tilesArray[0].visited = true;
     var talletettavaJson = JSON.stringify(tilesArray);
-    fetch('apit/tallenna.php/?data=' + talletettavaJson)
+    fetch('peli/apit/tallenna.php/?data=' + talletettavaJson)
     
     .then((response) => {
     return response.json();
