@@ -8,7 +8,7 @@ if($_SESSION['sloggedIn']=="yes"){
     echo("<p>Käyttäjä: " .$_SESSION['oname']);
 }else{
     ?>
-    <p>ei kirjautunut</p>
+    <p><strong>ei kirjautunut<strong></p>
     <?php
 }
 ?>

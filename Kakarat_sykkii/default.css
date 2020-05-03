@@ -506,6 +506,7 @@ hr
 		margin: 0em 0 5em 0;
 		padding-top: 1em;
 		text-align: center;
+		background-image: url("images/topo.svg");
 	}
 	
 		ul.contact li
@@ -513,6 +514,7 @@ hr
 			display: inline-block;
 			margin-right: 0.5em;
 			font-size: 1.2em;
+			align-items: center;
 		}
 		
 		ul.contact li span
@@ -543,7 +545,10 @@ hr
 			{
 				background: #2DAAE4;
 			}
-
+			ul.contact li a.icon-question-sign:before
+			{
+				background: aqua;
+			}
 			ul.contact li a.icon-facebook:before
 			{
 				background: #39599F;
@@ -832,7 +837,7 @@ hr
 /** login linkit*/
 #login2
 {
-	height: 50px;
+	height: 115px;
 	min-width: 140px;
 	max-width: 140px;
 	background-color: lightblue;
@@ -1102,7 +1107,7 @@ hr
   }
   
   /* [ON SMALL SCREENS] */
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 1100px){
 	/* Show Hamburger */
 	#page-nav label {
 	  display: inline-block;
