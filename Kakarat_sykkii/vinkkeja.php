@@ -1,3 +1,9 @@
+<?php
+    include("config/start.php");
+	include_once("config/config.php");
+    include("includes/inav.php");
+	/*session_start();*/
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Design by Free CSS Templates
@@ -32,10 +38,12 @@ Released   : 20130526
         <label for="hamburger">&#9776;</label>
         <input type="checkbox" id="hamburger"/>
 		<ul>
-			<li><a href="index.php" accesskey="1" title="">Kotisivu</a></li>
+            <li><a href="index.php" accesskey="1" title="">Etusivu</a></li>
 			<li><a href="pelilauta.php" accesskey="2" title="">Pelilauta</a></li>
 			<li><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
-			<li class="current_page_item"><a href="#" accesskey="4" title="">Vinkkejä liikuntaan</a></li>
+            <li class="current_page_item"><a href="#" accesskey="4" title="">Vinkkejä liikuntaan</a></li><br/>
+            <li><?php if($_SESSION['sloggedIn']=="yes"){ ?><a href="luokka.php" accesskey="8" title="">Luokka</a><?php } ?></li>
+			<li><?php if($_SESSION['sloggedIn']=="yes"){ ?><a href="logOutUser" accesskey="8" title="">Kirjaudu ulos</a><?php } ?></li>
 		</ul>
 	</div>
 </div>

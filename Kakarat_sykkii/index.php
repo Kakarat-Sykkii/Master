@@ -3,6 +3,7 @@
 	include_once("config/config.php");
 	include_once("forms/register.php");
 	include_once("forms/login.php");
+	include_once("forms/logino.php");
 	include("includes/inav.php");
 	session_start();
 ?>
@@ -34,10 +35,20 @@ Released   : 20130526
 	<div id="logo">
         <h1><a href="#">Kakarat sykkii</a></h1>
         <div id="login2">
-    <!--<ul>
-        <li><a href="#" accesskey="6" title="" id="login">Kirjaudu</a></li>
-        <li><a href="#" accesskey="7" title="" id="register">Rekisteröidy</a></li>
-    </ul></!-->
+			<?php
+			if($_SESSION['sloggedIn']=="yes" || $_SESSION['ologgedIn']=="yes"){
+			?>
+				<li><a href="logOutUser" accesskey="8" title="">Kirjaudu ulos</a></li>
+			<?php
+			} else {
+			?>	
+        		<li><a href="#" accesskey="6" title="" id="login">Opettaja</a></li>
+				<li><a href="#" accesskey="6" title="" id="logino">Oppilas</a></li>
+				<li><a href="#" accesskey="7" title="" id="register">Rekisteröidy</a></li>
+			<?php
+			}
+			?>	
+    	</ul>
 </div>
     </div>
         
@@ -50,10 +61,8 @@ Released   : 20130526
 			<li><a href="pelilauta.php" accesskey="2" title="">Pelilauta</a></li>
 			<li><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
 			<li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li><br/>
-			<li><a href="#" accesskey="6" title="" id="login">Log in</a></li>
-			<li><a href="#" accesskey="7" title="" id="register">Register</a></li>
-			<li><?php if($_SESSION['sloggedIn']=="yes"){ ?><a href="luokka.php" accesskey="8" title="">Luokka</a><?php } ?></li>
-			<li><?php if($_SESSION['sloggedIn']=="yes"){ ?><a href="logOutUser" accesskey="8" title="">Kirjaudu ulos</a><?php } ?></li>
+			<li><?php if($_SESSION['sloggedIn']=="yes"){ ?><a href="luokka.php" accesskey="9" title="">Luokka</a><?php } ?></li>
+			<li><?php if($_SESSION['ologgedIn']=="yes"){ ?><a href="pistelaskuri.php" accesskey="10" title="">Pistelaskuri</a><?php } ?></li>
 		</ul>
 	</div>
 </div>
@@ -88,6 +97,7 @@ Released   : 20130526
 	  </div>
 	</div>
 </div>
+<!--Register popup code-->
 <div id="myModal2" class="modal">
 	<div class="modal-content">
 	  <div class="modal-header">
@@ -110,7 +120,27 @@ Released   : 20130526
 	  </div>
 	</div>
 </div>
-
+<!--Oppilas login popup code-->
+<div id="myModal3" class="modal">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<span class="close">&times;</span>
+		<h2>Kirjaudu sisään</h2>
+	  </div>
+	  <div class="modal-body">
+		<form method="post">
+			<p>Kirjaudu sisään tästä:</p>
+			<p>Tunnus: <input type="text" name="goName" placeholder="Anna nimesi" maxlength="40"></p><br/>
+			<p>Salasana: <input type="password" name="goPassword" placeholder="salasana max 40 merkkiä" maxlength="40"></p><br/>
+			<p>Kirjaudu tästä napista: <input type="submit" name="submitStudent" value="Kirjaudu"></input></p>
+			<p>Palaa etusivulle: <input type="submit" name="submitBack" value="paluu"/></p>
+		  </form>
+	  </div>
+	  <div class="modal-footer">
+		<h3>Kakarat sykkiiii</h3>
+	  </div>
+	</div>
+</div>
   
 
 
@@ -136,9 +166,11 @@ Released   : 20130526
 </body>
 <script>
 	var modal = document.getElementById("myModal");
-	var modal2 = document.getElementById("myModal2");   
+	var modal2 = document.getElementById("myModal2");
+	var modal3 = document.getElementById("myModal3");     
   	var btn = document.getElementById("login");
 	var btn2 = document.getElementById("register");
+	var btn3 = document.getElementById("logino");
   	var span = document.getElementsByClassName("close")[0];
 	btn.onclick = function() {
 		modal.style.display = "block";
@@ -146,8 +178,12 @@ Released   : 20130526
 	btn2.onclick = function() {
 		modal2.style.display = "block";
 	}
+	btn3.onclick = function() {
+		modal3.style.display = "block";
+	}
 	span.onclick = function() {
 		modal.style.display = "none";
+		modal2.style.display = "none";
 		modal2.style.display = "none";
 	}
 	window.onclick = function(event) {
@@ -156,6 +192,9 @@ Released   : 20130526
 		}
 		if (event.target == modal2) {
 			modal2.style.display = "none";
+		}
+		if (event.target == modal3) {
+			modal3.style.display = "none";
 		}
 	}
 </script>
