@@ -6,7 +6,7 @@ include("../config/config.php");
   
   //haetaan tallennus
   //$data['tiles'] = $_GET["data"];            
-  $data ['oppilas'] = 11;
+  $data ['oppilas'] = $_SESSION['oID'];
   //kysely
   $STH = $DBH->prepare("SELECT tilanne FROM KS_oppilas WHERE OppilasID = :oppilas ");
     //" . "'".$oppilas."'");
