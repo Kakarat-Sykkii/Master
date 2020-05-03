@@ -119,6 +119,7 @@ class Component {
 
 function save(){
     //tallennetaan array ajaxin avulla
+    tilesArray[0].visited = true;
     var talletettavaJson = JSON.stringify(tilesArray);
     //apit hakemisto ja sinne tallenna.php
     fetch('apit/tallenna.php/?data=' + talletettavaJson)
@@ -128,10 +129,25 @@ function save(){
     })
     
     .then((vastaus) => {  
-      document.getElementById("talletettava").innerHTML = "talletettava " + tilesArray;
-      tilesArray = JSON.parse(vastaus);
+      document.getElementById("talletettava").innerHTML = "onnistuiko tallennus " + vastaus;
+      //tilesArray = JSON.parse(vastaus);
       });
   }
+function getsave(){
+  //haetaan tallennus
+  fetch('apit/lue.php')
+  .then((response) => {
+    return response.json();
+  
+  })
+  
+  .then((vastaus) => {  
+    document.getElementById("talletettu").innerHTML = "tallettettu " + JSON.stringify(vastaus);
+    tilesArray = vastaus;
+    });
+}
+
+
 
 function moveright(){
   counter ++;
@@ -211,8 +227,8 @@ function posCheck(){
 
 function update(tileObject){
 ctx = myGameArea.context;
-ctx.fillStyle = tileObject.Color;
-ctx.fillRect(tileObject.X, tileObject.Y, tileObject.Width, tileObject.Height);
+ctx.fillStyle = tileObject.color;
+ctx.fillRect(tileObject.x, tileObject.y, tileObject.width, tileObject.height);
 }
 
 var myGameArea = {
@@ -232,9 +248,6 @@ var myGameArea = {
 
 // päivitetään peli alueella tapahtuneet muutokset
 function updateGameArea() {
-
-
-
 
   myGameArea.clear();
   ctx = myGameArea.context;

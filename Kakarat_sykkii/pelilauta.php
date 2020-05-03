@@ -51,6 +51,8 @@ Released   : 20130526
             </div>
             <div>
                 <button onclick="Dice()">Heitä noppaa</button>
+                <button onclick="save()">tallenna tilanne</button>
+                <button onclick="getsave()">hae vanha tilannne</button>
             </div>
 
 
