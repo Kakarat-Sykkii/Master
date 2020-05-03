@@ -1,7 +1,7 @@
 <?php
     include("config/start.php");
 	include_once("config/config.php");
-    include("includes/inav.php");
+
 	/*session_start();*/
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -27,6 +27,9 @@ Released   : 20130526
 <link href="default_ie6.css" rel="stylesheet" type="text/css" />
 <![endif]-->
 </head>
+<?php
+    include("includes/inav.php");
+?>
 <body onload="startGame()">
 
     <div id="header" class="container">
