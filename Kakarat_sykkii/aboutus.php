@@ -1,5 +1,5 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <!--
 Design by Free CSS Templates
 http://www.freecsstemplates.org
@@ -11,7 +11,7 @@ Version    : 1.0
 Released   : 20130526
 
 -->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="fi" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Kakarat Sykkii</title>
@@ -41,7 +41,7 @@ Released   : 20130526
                     <li><a href="index.php" accesskey="1" title="">Etusivu</a></li>
                     <li><a href="pelilauta.php" accesskey="2" title="">Pelilauta</a></li>
                     <li class="current_page_item"><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
-                    <li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li><br/>
+                    <li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li>
                     <?php if($_SESSION['sloggedIn']=="yes"){ ?><li><a href="luokka.php" accesskey="8" title="">Luokka</a></li><?php } ?>
                     <?php if($_SESSION['ologgedIn']=="yes"){ ?><li><a href="pistelaskuri.php" accesskey="10" title="">Pistelaskuri</a></li><?php } ?>
                     <?php if($_SESSION['sloggedIn']=="yes"){ ?><li><a href="logOutUser.php" accesskey="8" title="">Kirjaudu ulos</a></li><?php } ?>
@@ -52,45 +52,30 @@ Released   : 20130526
         <div id="welcome" class="wrapper-style1">
             <div class="title">
                 <h2>Tietoa meistä</h2>
-                <span class="byline">Miten me päädyttiin tänne </div>
-            
+                <span class="byline"> Miten me päädyttiin tänne </span>
             <p>Kakarat sykkii- sovelluksen 3 muskettisoturia </p>
-        </span>
-        </div>
+
+    </div>
+</div>
 
         <div class="flexcon">
 <div id="column1c">
-		<p><img src="images/aatukomea.jpeg" class="usimage"alt="Kuva Aatusta" /></p>
+		<p><img src="images/aatukomea.jpeg" class="usimage" alt="Kuva Aatusta" /></p>
         <p><strong>Aatu Kotanen</strong> Toisen vuoden opiskelija, positiivinen liikunnan ystävä</p> 
         <p><strong>Aatu.Kotanen@metropolia.fi</strong>
 		<a href="#" class="button">Read More</a> </div>
 	<div id="column2c">
-		<p><img src="images/ilkka.jpeg"class="usimage" alt="Kuva Ilkasta" /></p>
+		<p><img src="images/ilkka.jpeg" class="usimage" alt="Kuva Ilkasta" /></p>
         <p><strong>Ilkka Törmälä</strong> Toisen vuoden opiskelija, aina valmiina vastaamaan kysymyksiin.</p>
         <p><strong>Ilkka.Tormala@metropolia.fi</strong>
 		<a href="#" class="button">Read More</a> </div>
 	<div id="column3c">
-		<p><img src="images/jussinaata.jpeg"class="usimage" alt="Kuva jussista" /></p>
+		<p><img src="images/jussinaata.jpeg" class="usimage" alt="Kuva jussista" /></p>
         <p><strong>Jussi Salminen</strong> Toisen vuoden opiskelija, innokas ja auttavainen persoona.</p> 
         <p><strong>Jussi.Salminen2@metropolia.fi</strong>
 		<a href="#" class="button">Read More</a> </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div id="footer" class="container">
+       <div id="footer" class="container">
             <div>
                 <div class="title">
                     <h2>Get in touch</h2>
