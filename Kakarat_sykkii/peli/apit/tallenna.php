@@ -1,10 +1,12 @@
 <?php
+include("../../config/start.php");
+include("../../config/config.php");
   header("Access-Control-Allow-Origin: *");
   header("Content-Type: application/json; charset=UTF-8");
   
   //tallennetaan peli tilanne kantaan
   $data['tiles'] = $_GET["data"];            
-  $data ['oppilas'] = 11;
+  $data ['oppilas'] = 9;
   //kysely
   $STH = $DBH->prepare("UPDATE KS_oppilas SET tilanne = :tiles WHERE OppilasID = :oppilas ");
     //" . "'".$oppilas."'");

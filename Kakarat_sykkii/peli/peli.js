@@ -134,7 +134,7 @@ function getsave(){
   //haetaan tallennus
   //var talletettavaJson = JSON.stringify(tilesArray);
   //apit hakemisto ja sinne tallenna.php
-  fetch('apit/lue.php')
+  fetch('peli/apit/lue.php')
   .then((response) => {
     return response.json();
   
