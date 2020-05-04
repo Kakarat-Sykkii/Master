@@ -38,7 +38,7 @@ Released   : 20130526
             <input type="checkbox" id="hamburger"/>
             <ul>
                 <li><a href="index.php" accesskey="1" title="">Etusivu</a></li>
-                <li><a href="#" accesskey="2" title="">Pelilauta</a></li>
+                <li><a href="pelilauta.php" accesskey="2" title="">Pelilauta</a></li>
                 <li><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
                 <li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li><br/>
                 <li class="current_page_item"><?php if($_SESSION['sloggedIn']=="yes"){ ?><a href="luokka.php" accesskey="9" title="">Luokka</a><?php } ?></li>
@@ -47,11 +47,11 @@ Released   : 20130526
         </div>
     </div>
     <div id="welcome" class="wrapper-style1">
-        <div class="title">
+        <div id="enmuista">
             <h2>Luokan tekeminen</h2>
         </div>
     </div>        
-    
+    <div id="enmuista">
         <?php
         try{
             $sql = "SELECT COUNT(*) FROM KS_luokka where OpettajaID = " . "'".$_SESSION['sOpettajaID']."'";
@@ -70,32 +70,37 @@ Released   : 20130526
             $_SESSION['swarningInput'] = 'Database problem';
         }
         ?>
-
+    </div>
+    <div class="title"></div>
     <!--Luokan oppilaat -->
+    <div id="enmuista">
         <?php
            $sql="SELECT * FROM	KS_oppilas WHERE LuokkaID = " . "'".$_SESSION['oLuokkaID']."'";
            $kysely=$DBH->prepare($sql);				
            $kysely->execute();
                echo("<h2>Luokan oppilaat</h2>");
-        
+                ?>
+                <fieldset>
+                <?php
                foreach($DBH->query("SELECT COUNT(*) FROM KS_oppilas WHERE LuokkaID = " . "'".$_SESSION['oLuokkaID']."'") as $row) {
                    echo "<p>Luokassa on  " . $row['COUNT(*)'] . " oppilasta</p>";
                    }
                
-               echo("<table>
+               echo("<table id='jalka'>
                    <tr>
-                       <th>Nimi</th>
-                       <th>Salasana</th>
-                       <th>Pisteet</th>
+                       <th id='poyta'>Nimi</th>
+                       <th id='poyta'>Salasana</th>
+                       <th id='poyta'>Pisteet</th>
                    </tr>");
                while	($row=$kysely->fetch()){	
-                       echo("<tr><td>".$row["Oppilastunnus"]."</td>
-                       <td>".$row["Oppilassalasana"]."</td>
-                       <td>".$row["Pisteet"]."</td>");
+                       echo("<tr><td id='poyta'>".$row["Oppilastunnus"]."</td>
+                       <td id='poyta'>".$row["Oppilassalasana"]."</td>
+                       <td id='poyta'>".$row["Pisteet"]."</td>");
                    }
                echo("</table>");
         ?>
-
+                </fieldset>
+    </div>
 
 </body>
 </html>
