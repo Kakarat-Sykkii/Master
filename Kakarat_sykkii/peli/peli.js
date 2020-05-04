@@ -244,7 +244,7 @@ var myGameArea = {
       this.context = this.canvas.getContext("2d");
       var peliarea = document.getElementById('peliarea');
       peliarea.insertBefore(this.canvas, peliarea.firstChild);
-      this.interval = setInterval(updateGameArea, 1000);
+      this.interval = setInterval(updateGameArea, 10);
   },
   clear : function() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
