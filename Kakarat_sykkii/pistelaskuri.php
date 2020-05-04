@@ -1,11 +1,4 @@
-<?php
-    include("config/start.php");
-	include_once("config/config.php");
-    include("includes/inav.php");
-	/*session_start();*/
-?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <!--
 Design by Free CSS Templates
 http://www.freecsstemplates.org
@@ -17,7 +10,7 @@ Version    : 1.0
 Released   : 20130526
 
 -->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="fi" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Kakarat Sykkii</title>
@@ -29,6 +22,13 @@ Released   : 20130526
 <![endif]-->
 </head>
 <body>
+<?php
+    include("config/start.php");
+	include_once("config/config.php");
+    include("includes/inav.php");
+	/*session_start();*/
+?>
+
     <div id="header" class="container">
         <div id="logo">
             <h1><a href="index.html">Kakarat sykkii</a></h1>
@@ -40,7 +40,7 @@ Released   : 20130526
                 <li><a href="index.php" accesskey="1" title="">Etusivu</a></li>
                 <li><a href="#" accesskey="2" title="">Pelilauta</a></li>
                 <li><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
-                <li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li><br/>
+                <li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li>
                 <?php if($_SESSION['sloggedIn']=="yes"){ ?><li><a href="luokka.php" accesskey="9" title="">Luokka</a></li><?php } ?>
                 <?php if($_SESSION['ologgedIn']=="yes"){ ?><li class="current_page_item"><a href="pistelaskuri.php" accesskey="10" title="">Pistelaskuri</a></li><?php } ?>
                 <?php if($_SESSION['sloggedIn']=="yes"){ ?><li><a href="logOutUser.php" accesskey="8" title="">Kirjaudu ulos</a></li><?php } ?>
@@ -52,7 +52,9 @@ Released   : 20130526
         <div class="title">
             <h2>Pistelaskuri oppilaille</h2>
         </div>
-    </div>        
+    </div>
+    <div class ="enmuista">
+        <fieldset>        
     <form method="post">
         <p>
             Anna keskisyke: <input type="text" name="givenHBR"/>
@@ -76,9 +78,25 @@ Released   : 20130526
             //Palataan takaisin tälle sivulle
             //header("Location: pistelaskuri.php");
         }
-        echo($_SESSION['oID']);
+        echo("<p> Sinun id:si ON: </p>" .$_SESSION['oID']);
         //echo($_POST['givenHBR'] / $divirer);
     ?>
+    </fieldset>
+    </div>
+
+    <div id="footer" class="container">
+	<div>
+		<div class="title">
+			<h2>Get in touch</h2>
+			<span class="byline">Hyödyllisiä linkkejä sinulle</span> </div>
+		<ul class="contact">
+			<li><a href="#" class="icon icon-twitter"><span>Twitter</span></a></li>
+            <li><a href="#" class="icon icon-facebook"><span></span></a></li>
+            <li><a href="faq.php" class="icon icon-question-sign"></a></li>
+		</ul>
+	</div>
+	<p>&copy; 2013 Sitename.com. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://www.freecsstemplates.org/" rel="nofollow">FreeCSSTemplates.org</a>.</p>
+</div>
 
 </body>
 </html>

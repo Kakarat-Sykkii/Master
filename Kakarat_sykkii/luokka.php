@@ -1,11 +1,4 @@
-<?php
-    include("config/start.php");
-	include_once("config/config.php");
-    include("includes/inav.php");
-	/*session_start();*/
-?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <!--
 Design by Free CSS Templates
 http://www.freecsstemplates.org
@@ -17,7 +10,7 @@ Version    : 1.0
 Released   : 20130526
 
 -->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="fi" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Kakarat Sykkii</title>
@@ -29,7 +22,14 @@ Released   : 20130526
 <![endif]-->
 </head>
 <body>
-    <div id="header" class="container">
+<?php
+    include("config/start.php");
+	include_once("config/config.php");
+    include("includes/inav.php");
+	/*session_start();*/
+?>
+
+<div id="header" class="container">
         <div id="logo">
             <h1><a href="index.html">Kakarat sykkii</a></h1>
         </div>
@@ -40,18 +40,18 @@ Released   : 20130526
                 <li><a href="index.php" accesskey="1" title="">Etusivu</a></li>
                 <li><a href="pelilauta.php" accesskey="2" title="">Pelilauta</a></li>
                 <li><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
-                <li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li><br/>
+                <li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li>
                 <li class="current_page_item"><?php if($_SESSION['sloggedIn']=="yes"){ ?><a href="luokka.php" accesskey="9" title="">Luokka</a><?php } ?></li>
                 <li><?php if($_SESSION['sloggedIn']=="yes"){ ?><a href="logOutUser" accesskey="8" title="">Kirjaudu ulos</a><?php } ?></li>
             </ul>
         </div>
     </div>
     <div id="welcome" class="wrapper-style1">
-        <div id="enmuista">
+        <div class="enmuista">
             <h2>Luokan tekeminen</h2>
         </div>
     </div>        
-    <div id="enmuista">
+    <div class="enmuista">
         <?php
         try{
             $sql = "SELECT COUNT(*) FROM KS_luokka where OpettajaID = " . "'".$_SESSION['sOpettajaID']."'";
@@ -73,7 +73,7 @@ Released   : 20130526
     </div>
     <div class="title"></div>
     <!--Luokan oppilaat -->
-    <div id="enmuista">
+    <div class="enmuista">
         <?php
            $sql="SELECT * FROM	KS_oppilas WHERE LuokkaID = " . "'".$_SESSION['oLuokkaID']."'";
            $kysely=$DBH->prepare($sql);				
@@ -88,14 +88,14 @@ Released   : 20130526
                
                echo("<table id='jalka'>
                    <tr>
-                       <th id='poyta'>Nimi</th>
-                       <th id='poyta'>Salasana</th>
-                       <th id='poyta'>Pisteet</th>
+                       <th class='poyta'>Nimi</th>
+                       <th class='poyta'>Salasana</th>
+                       <th class='poyta'>Pisteet</th>
                    </tr>");
                while	($row=$kysely->fetch()){	
-                       echo("<tr><td id='poyta'>".$row["Oppilastunnus"]."</td>
-                       <td id='poyta'>".$row["Oppilassalasana"]."</td>
-                       <td id='poyta'>".$row["Pisteet"]."</td>");
+                       echo("<tr><td class='poyta'>".$row["Oppilastunnus"]."</td>
+                       <td class='poyta'>".$row["Oppilassalasana"]."</td>
+                       <td class='poyta'>".$row["Pisteet"]."</td>");
                    }
                echo("</table>");
         ?>
