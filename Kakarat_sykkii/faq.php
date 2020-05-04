@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <!--
 Design by Free CSS Templates
 http://www.freecsstemplates.org
@@ -10,10 +10,10 @@ Version    : 1.0
 Released   : 20130526
 
 -->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="fi" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title></title>
+<title>FAQ</title>
 <meta name="keywords" content="" />	
 <meta name="description" content="" />
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
@@ -23,6 +23,15 @@ Released   : 20130526
 <![endif]-->
 </head>
 <body>
+<?php
+	include("config/start.php");
+	include_once("config/config.php");
+	include_once("forms/register.php");
+	include_once("forms/login.php");
+	include_once("forms/logino.php");
+	include("includes/inav.php");
+	//session_start();
+?>
 <div id="header" class="container">
 	<div id="logo">
 		<h1><a href="index.php">Kakarat Sykkii</a></h1>
@@ -35,7 +44,7 @@ Released   : 20130526
 			<li><a href="#" accesskey="1" title="">Etusivu</a></li>
 			<li><a href="pelilauta.php" accesskey="2" title="">Pelilauta</a></li>
 			<li><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
-			<li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li><br/>
+			<li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li>
 			<?php if($_SESSION['sloggedIn']=="yes"){ ?><li><a href="luokka.php" accesskey="9" title="">Luokka</a></li><?php } ?>
 			<?php if($_SESSION['ologgedIn']=="yes"){ ?><li><a href="pistelaskuri.php" accesskey="10" title="">Pistelaskuri</a></li><?php } ?>
 		</ul>
@@ -46,33 +55,34 @@ Released   : 20130526
 		<h2>Usein kysytyt kysymykset</h2>
 		<main id="accordion">
             <section id="q1">
-                <a href="#q1"><h1>Keitä te olette?</h1></a>
+                <a href="#q1"><h2>Keitä te olette?</h2></a>
                 <p>Me olemme kolme opiskelijaa kakarat sykkii- sovelluksen takana. Aatu, Ilkka ja Jussi</p>
             </section>
 
             <section id="q2">
-                <a href="#q2"><h1>Kuka tuo komein on?</h1></a>
+                <a href="#q2"><h2>Kuka tuo komein on?</h2></a>
                 <p>Se on Aatu</p>
             </section>
 
             <section id="q3">
-                <a href="#q3"><h1>Miksi tälläinen sovellus?</h1></a>
+                <a href="#q3"><h2>Miksi tälläinen sovellus?</h2></a>
                 <p>Mietimme ryhmän kesken ennen projektin aloitusta tapaa, joka olisi hauska lapsille ja saisi nuoret liikkumaan, kuitenkin samalla täyttäen sykedata- vaatimuksen. Päätimme yhdistää ideat ja näin syntyi kakarat sykkii!</p>
             </section>
 
             <section id="q4">
-                <a href="#q4"><h1>Miksi Kakarat sykkii?</h1></a>
+                <a href="#q4"><h2>Miksi Kakarat sykkii?</h2></a>
                 <p>Kakaroiden sykkiminen on meille tärkeää, sillä mitä enemmän on sykkimistä havaittavissa niin sitä enemmän lapset jaksavat käyttää aikaa ja keskittymistä opiskelemiseen, koulussa tulee nopeasti väsy jos ei liikuta kehoa.
                     Me tuomme ratkaisun tähän ikävään ongelmaan pelillistämällä liikkuminen ja tekemällä liikunnasta mukavan yhdessä tehtävän kilpailun
                 </p>
             </section>
 
             <section id="q5">
-                <a href="#q5"><h1>Voikohan tähän nyt luottaa ollenkaan!?</h1></a>
+                <a href="#q5"><h2>Voikohan tähän nyt luottaa ollenkaan!?</h2></a>
                 <p>Kyllä voi</p>
             </section>
         </main>
-	
+    </div>
+</div>	
         <div id="footer" class="container">
             <div>
                 <div class="title">
