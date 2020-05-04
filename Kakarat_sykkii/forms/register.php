@@ -33,9 +33,11 @@ if(isset($_POST['submitUser'])){
     $kysely->execute();				
     $tulos=$kysely->fetch();
     if($tulos[0] == 0){ //email ei ole käytössä
-     $STH = $DBH->prepare("INSERT INTO KS_opettaja (/*LuokkaID, */userEmail, Opettajasalasana, Opettajanimi) VALUES (/*:luokkaID, */:email, :pwd, :name);");
-     $STH->execute($data);
-     header("Location: index.php"); //Palataan pääsivulle kirjautuneena
+      $STH = $DBH->prepare("INSERT INTO KS_opettaja (/*LuokkaID, */userEmail, Opettajasalasana, Opettajanimi) VALUES (/*:luokkaID, */:email, :pwd, :name);");
+      $STH->execute($data);
+      session_unset();
+      session_destroy();
+      header("Location: index.php"); //Palataan pääsivulle kirjautuneena
     }else{
       $_SESSION['swarningInput']="email is reserved";
     }

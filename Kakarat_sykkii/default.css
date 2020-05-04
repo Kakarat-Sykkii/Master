@@ -840,7 +840,6 @@ hr
 	height: 115px;
 	min-width: 140px;
 	max-width: 140px;
-	background-color: lightblue;
 }
 #login2 li a, #login2 li span
 {
@@ -1147,8 +1146,18 @@ hr
 	color: #FFF;
 }
 
-/** p setitykset rehhellisesti*/
-#pkapee
-{
-	
+#enmuista {
+	display: block;
+	width: 50%;
+	min-width: 370px;
+	text-align: center;
+	margin: auto;
+}
+#poyta {
+	padding: 2px 20px 2px 20px;
+
+}
+#jalka {
+	text-align: center;
+	margin: auto;
 }
