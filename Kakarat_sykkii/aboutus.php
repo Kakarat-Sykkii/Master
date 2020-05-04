@@ -1,9 +1,4 @@
-<?php
-    include("config/start.php");
-	include_once("config/config.php");
-    include("includes/inav.php");
-	/*session_start();*/
-?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Design by Free CSS Templates
@@ -28,6 +23,13 @@ Released   : 20130526
 <![endif]-->
 </head>
     <body>
+
+<?php
+    include("config/start.php");
+	include_once("config/config.php");
+    include("includes/inav.php");
+	/*session_start();*/
+?>
         <div id="header" class="container">
             <div id="logo">
                 <h1><a href="index.php">Kakarat sykkii</a></h1>
