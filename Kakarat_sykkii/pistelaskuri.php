@@ -78,10 +78,19 @@ Released   : 20130526
             //Palataan takaisin tälle sivulle
             //header("Location: pistelaskuri.php");
         }
-        echo("<p> Sinun id:si ON: </p>" .$_SESSION['oID']);
+        echo("<p> Sinun id:si on: " .$_SESSION['oID']. "</p>");
         //echo($_POST['givenHBR'] / $divirer);
     ?>
     </fieldset>
+    <div class="enmuista">
+        <fieldset>
+            <legend>Ohjeet:</legend>
+                <h4>Vaihe 1.</h4>
+                <p>Kun avaat tämän sivun, sinulla on mahdollisuus ansaita pisteitä. Voit katsoa rannekkeestasi keskisykkeesi ja syöttää sen yllä olevaan kenttään.</p>
+                <h4>Vaihe 2.</h4>
+                <p>Kun olet kirjoittanut keskisykkeesi kenttään paina "Lisää" painiketta. Nyt olet saanut pisteet tästä suorituksesta ja voit käyttää ne pelilaudalla.</p>
+        </fieldset>
+    </div>
     </div>
 
     <div id="footer" class="container">
