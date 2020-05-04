@@ -127,14 +127,14 @@ function save(){
 
     .then((vastaus) => {  
       //document.getElementById("talletettava").innerHTML = "onnistuiko tallennus " + vastaus;
-      tilesArray = JSON.parse(vastaus[0]);
+      tilesArray = JSON.parse(vastaus);
       });
   }
 function getsave(){
   //haetaan tallennus
   //var talletettavaJson = JSON.stringify(tilesArray);
   //apit hakemisto ja sinne tallenna.php
-  fetch('apit/lue.php')
+  fetch('peli/apit/lue.php')
   .then((response) => {
     return response.json();
   
