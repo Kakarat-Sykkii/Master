@@ -78,7 +78,7 @@ Released   : 20130526
        $kysely->execute();
            echo("<h2>Luokan oppilaat</h2>");
        
-           foreach($DBH->query('SELECT COUNT(*) FROM KS_oppilas') as $row) {
+           foreach($DBH->query("SELECT COUNT(*) FROM KS_oppilas WHERE LuokkaID = " . "'".$_SESSION['oLuokkaID']."'") as $row) {
                echo "<p>Luokassa on  " . $row['COUNT(*)'] . " oppilasta</p>";
                }
        
