@@ -127,7 +127,7 @@ function save(){
 
     .then((vastaus) => {  
       //document.getElementById("talletettava").innerHTML = "onnistuiko tallennus " + vastaus;
-      tilesArray = JSON.parse(vastaus);
+      tilesArray = JSON.parse(vastaus[0]);
       });
   }
 function getsave(){
