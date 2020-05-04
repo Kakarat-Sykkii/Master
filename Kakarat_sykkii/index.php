@@ -35,6 +35,7 @@ Released   : 20130526
 	<div id="logo">
         <h1><a href="#">Kakarat sykkii</a></h1>
         <div id="login2">
+			<ul>
 			<?php
 			if($_SESSION['sloggedIn']=="yes" || $_SESSION['ologgedIn']=="yes"){
 			?>
@@ -48,8 +49,8 @@ Released   : 20130526
 			<?php
 			}
 			?>	
-    	</ul>
-</div>
+    		</ul>
+		</div>
     </div>
         
 	<div id="page-nav">

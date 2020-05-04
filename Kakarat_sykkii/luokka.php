@@ -52,49 +52,49 @@ Released   : 20130526
         </div>
     </div>        
     
-    <?php
-    try{
-        $sql = "SELECT COUNT(*) FROM KS_luokka where OpettajaID = " . "'".$_SESSION['sOpettajaID']."'";
-        $kysely=$DBH->prepare($sql);
-        $kysely->execute();				
-        $tulos=$kysely->fetch();
-        if($tulos[0] == 0){ //opettajalla ei ole vielä luokkaa
-            include("forms/classcreate.php");
-        }else{
-            include("forms/studentadder.php");
-            /*include("forms/studentadder.php");*/
-        }
+        <?php
+        try{
+            $sql = "SELECT COUNT(*) FROM KS_luokka where OpettajaID = " . "'".$_SESSION['sOpettajaID']."'";
+            $kysely=$DBH->prepare($sql);
+            $kysely->execute();				
+            $tulos=$kysely->fetch();
+            if($tulos[0] == 0){ //opettajalla ei ole vielä luokkaa
+                include("forms/classcreate.php");
+            }else{
+                include("forms/studentadder.php");
+                /*include("forms/studentadder.php");*/
+            }
 
-    }catch(PDOException $e) {
-            file_put_contents('log/DBErrors.txt', 'signInUser.php: '.$e->getMessage()."\n", FILE_APPEND);
-        $_SESSION['swarningInput'] = 'Database problem';
-    }
-    ?>
+        }catch(PDOException $e) {
+                file_put_contents('log/DBErrors.txt', 'signInUser.php: '.$e->getMessage()."\n", FILE_APPEND);
+            $_SESSION['swarningInput'] = 'Database problem';
+        }
+        ?>
 
     <!--Luokan oppilaat -->
-    <?php
-       $sql="SELECT * FROM	KS_oppilas WHERE LuokkaID = " . "'".$_SESSION['oLuokkaID']."'";
-       $kysely=$DBH->prepare($sql);				
-       $kysely->execute();
-           echo("<h2>Luokan oppilaat</h2>");
-       
-           foreach($DBH->query("SELECT COUNT(*) FROM KS_oppilas WHERE LuokkaID = " . "'".$_SESSION['oLuokkaID']."'") as $row) {
-               echo "<p>Luokassa on  " . $row['COUNT(*)'] . " oppilasta</p>";
-               }
-       
-           echo("<table>
-               <tr>
-                   <th>Nimi</th>
-                   <th>Salasana</th>
-                   <th>Pisteet</th>
-               </tr>");
-           while	($row=$kysely->fetch()){	
-                   echo("<tr><td>".$row["Oppilastunnus"]."</td>
-                   <td>".$row["Oppilassalasana"]."</td>
-                   <td>".$row["Pisteet"]."</td>");
-               }
-           echo("</table>");
-    ?>
+        <?php
+           $sql="SELECT * FROM	KS_oppilas WHERE LuokkaID = " . "'".$_SESSION['oLuokkaID']."'";
+           $kysely=$DBH->prepare($sql);				
+           $kysely->execute();
+               echo("<h2>Luokan oppilaat</h2>");
+        
+               foreach($DBH->query("SELECT COUNT(*) FROM KS_oppilas WHERE LuokkaID = " . "'".$_SESSION['oLuokkaID']."'") as $row) {
+                   echo "<p>Luokassa on  " . $row['COUNT(*)'] . " oppilasta</p>";
+                   }
+               
+               echo("<table>
+                   <tr>
+                       <th>Nimi</th>
+                       <th>Salasana</th>
+                       <th>Pisteet</th>
+                   </tr>");
+               while	($row=$kysely->fetch()){	
+                       echo("<tr><td>".$row["Oppilastunnus"]."</td>
+                       <td>".$row["Oppilassalasana"]."</td>
+                       <td>".$row["Pisteet"]."</td>");
+                   }
+               echo("</table>");
+        ?>
 
 
 </body>
