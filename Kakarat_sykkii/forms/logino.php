@@ -45,10 +45,3 @@ if(isset($_POST['submitBack'])){
   header("Location: index.php");
 }
 ?>
-
-<?php
-  //***Näytetäänkö lomakesyötteen aiheuttama varoitus?
-if(isset($_SESSION['swarningInput'])){
-  echo("<p class=\"warning\">ILLEGAL INPUT: ". $_SESSION['swarningInput']."</p>");
-}
-?>

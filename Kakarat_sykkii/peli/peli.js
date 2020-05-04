@@ -22,6 +22,8 @@ function startGame() {
       tilesArray.push(tileName)
       i++;
   }
+
+  tilesArray[0].visited = true;
   
   //alempi vaakasuora laatta rivi    
   i = 1;
@@ -82,13 +84,13 @@ class Component {
     this.x = x;
     this.y = y;
     this.color = color;
-    //getteri ja setteri
     this.visited = visited;
+      //getteri ja setteri
   }
-
-    get X(){
+   
+  get X(){
     return this.x;
-   }
+  }
 
    set X (corX){
     this.x = corX;
@@ -113,11 +115,14 @@ class Component {
    get Color(){
      return this.color;
    }
+
+   set Color(cColor){
+    this.color = cColor;
+   }
 }
 
 function save(){
     //tallennetaan array ajaxin avulla
-    tilesArray[0].visited = true;
     var talletettavaJson = JSON.stringify(tilesArray);
     fetch('peli/apit/tallenna.php/?data=' + talletettavaJson)
     
@@ -203,7 +208,7 @@ function movedown(){
 
 //katotaan onko pelaaja pelilaatalla 
 function posCheck(){
-
+  
   var i;
   for(i = 0; i < tilesArray.length; i ++){
     var playerLeft = player.X;
@@ -218,7 +223,8 @@ function posCheck(){
 
     if (playerLeft > tileLeft && playerRight < tileRight && 
         playerTop > tileTop && playerBot < tileBot){
-        check = 1;
+          check = 1;
+          tilesArray[i].visited = true;
       }      
     }
   }   
@@ -238,7 +244,7 @@ var myGameArea = {
       this.context = this.canvas.getContext("2d");
       var peliarea = document.getElementById('peliarea');
       peliarea.insertBefore(this.canvas, peliarea.firstChild);
-      this.interval = setInterval(updateGameArea, 1000);
+      this.interval = setInterval(updateGameArea, 10);
   },
   clear : function() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -253,6 +259,9 @@ function updateGameArea() {
  
   var i;
   for(i = 0; i < tilesArray.length; i++){
+    if(tilesArray[i].visited == true){
+      tilesArray[i].color = "grey";
+    }
     ctx.fillStyle = tilesArray[i].color;
     ctx.fillRect(tilesArray[i].x, tilesArray[i].y, tilesArray[i].width, tilesArray[i].height);
   }

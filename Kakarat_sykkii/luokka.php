@@ -38,7 +38,7 @@ Released   : 20130526
             <input type="checkbox" id="hamburger"/>
             <ul>
                 <li><a href="index.php" accesskey="1" title="">Etusivu</a></li>
-                <li><a href="#" accesskey="2" title="">Pelilauta</a></li>
+                <li><a href="pelilauta.php" accesskey="2" title="">Pelilauta</a></li>
                 <li><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
                 <li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li><br/>
                 <li class="current_page_item"><?php if($_SESSION['sloggedIn']=="yes"){ ?><a href="luokka.php" accesskey="9" title="">Luokka</a><?php } ?></li>
@@ -47,55 +47,76 @@ Released   : 20130526
         </div>
     </div>
     <div id="welcome" class="wrapper-style1">
-        <div class="title">
+        <div id="enmuista">
             <h2>Luokan tekeminen</h2>
         </div>
     </div>        
-    
-    <?php
-    try{
-        $sql = "SELECT COUNT(*) FROM KS_luokka where OpettajaID = " . "'".$_SESSION['sOpettajaID']."'";
-        $kysely=$DBH->prepare($sql);
-        $kysely->execute();				
-        $tulos=$kysely->fetch();
-        if($tulos[0] == 0){ //opettajalla ei ole vielä luokkaa
-            include("forms/classcreate.php");
-        }else{
-            include("forms/studentadder.php");
-            /*include("forms/studentadder.php");*/
+    <div id="enmuista">
+        <?php
+        try{
+            $sql = "SELECT COUNT(*) FROM KS_luokka where OpettajaID = " . "'".$_SESSION['sOpettajaID']."'";
+            $kysely=$DBH->prepare($sql);
+            $kysely->execute();				
+            $tulos=$kysely->fetch();
+            if($tulos[0] == 0){ //opettajalla ei ole vielä luokkaa
+                include("forms/classcreate.php");
+            }else{
+                include("forms/studentadder.php");
+                /*include("forms/studentadder.php");*/
+            }
+
+        }catch(PDOException $e) {
+                file_put_contents('log/DBErrors.txt', 'signInUser.php: '.$e->getMessage()."\n", FILE_APPEND);
+            $_SESSION['swarningInput'] = 'Database problem';
         }
-
-    }catch(PDOException $e) {
-            file_put_contents('log/DBErrors.txt', 'signInUser.php: '.$e->getMessage()."\n", FILE_APPEND);
-        $_SESSION['swarningInput'] = 'Database problem';
-    }
-    ?>
-
+        ?>
+    </div>
+    <div class="title"></div>
     <!--Luokan oppilaat -->
-    <?php
-       $sql="SELECT * FROM	KS_oppilas WHERE LuokkaID = " . "'".$_SESSION['oLuokkaID']."'";
-       $kysely=$DBH->prepare($sql);				
-       $kysely->execute();
-           echo("<h2>Luokan oppilaat</h2>");
-       
-           foreach($DBH->query('SELECT COUNT(*) FROM KS_oppilas') as $row) {
-               echo "<p>Luokassa on  " . $row['COUNT(*)'] . " oppilasta</p>";
-               }
-       
-           echo("<table>
-               <tr>
-                   <th>Nimi</th>
-                   <th>Salasana</th>
-                   <th>Pisteet</th>
-               </tr>");
-           while	($row=$kysely->fetch()){	
-                   echo("<tr><td>".$row["Oppilastunnus"]."</td>
-                   <td>".$row["Oppilassalasana"]."</td>
-                   <td>".$row["Pisteet"]."</td>");
-               }
-           echo("</table>");
-    ?>
-
-
+    <div id="enmuista">
+        <?php
+           $sql="SELECT * FROM	KS_oppilas WHERE LuokkaID = " . "'".$_SESSION['oLuokkaID']."'";
+           $kysely=$DBH->prepare($sql);				
+           $kysely->execute();
+               echo("<h2>Luokan oppilaat</h2>");
+                ?>
+                <fieldset>
+                <?php
+               foreach($DBH->query("SELECT COUNT(*) FROM KS_oppilas WHERE LuokkaID = " . "'".$_SESSION['oLuokkaID']."'") as $row) {
+                   echo "<p>Luokassa on  " . $row['COUNT(*)'] . " oppilasta</p>";
+                   }
+               
+               echo("<table id='jalka'>
+                   <tr>
+                       <th id='poyta'>Nimi</th>
+                       <th id='poyta'>Salasana</th>
+                       <th id='poyta'>Pisteet</th>
+                   </tr>");
+               while	($row=$kysely->fetch()){	
+                       echo("<tr><td id='poyta'>".$row["Oppilastunnus"]."</td>
+                       <td id='poyta'>".$row["Oppilassalasana"]."</td>
+                       <td id='poyta'>".$row["Pisteet"]."</td>");
+                   }
+               echo("</table>");
+        ?>
+                </fieldset>
+    </div>
+    <div id="page">
+	<div id="content"></div>
+	<div id="sidebar"></div>
+</div>
+<div id="footer" class="container">
+	<div>
+		<div class="title">
+			<h2>Get in touch</h2>
+			<span class="byline">Hyödyllisiä linkkejä sinulle</span> </div>
+		<ul class="contact">
+			<li><a href="#" class="icon icon-twitter"><span>Twitter</span></a></li>
+            <li><a href="#" class="icon icon-facebook"><span></span></a></li>
+            <li><a href="faq.php" class="icon icon-question-sign"></a></li>
+		</ul>
+	</div>
+	<p>&copy; 2013 Sitename.com. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://www.freecsstemplates.org/" rel="nofollow">FreeCSSTemplates.org</a>.</p>
+</div>
 </body>
 </html>

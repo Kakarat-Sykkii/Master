@@ -6,7 +6,7 @@ include("../../config/config.php");
   
   //tallennetaan peli tilanne kantaan
   $data['tiles'] = $_GET["data"];            
-  $data ['oppilas'] = 9;
+  $data ['oppilas'] = $_SESSION['oID'];
   //kysely
   $STH = $DBH->prepare("UPDATE KS_oppilas SET tilanne = :tiles WHERE OppilasID = :oppilas ");
     //" . "'".$oppilas."'");
