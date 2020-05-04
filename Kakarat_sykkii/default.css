@@ -811,14 +811,12 @@ hr
 .flexconv
 {
 	display: flex;
-	justify-content: space space-around;
+	justify-content: space-around;
 	vertical-align: bottom;
 }
 /**kuvien classit et saahaan ne samaan kohtaan*/
 .imgrotta
 {
-	height: 100;
-	width: 100;
 	display: block;
 	width: 100%;
 	margin: 0 4em 2em 0;
@@ -1084,14 +1082,14 @@ hr
   /* Menu Items */
   #page-nav ul {
 	list-style-type: none;
-	margin: 15;
-	padding: 0; 
   }
+
   #page-nav ul li {
 	display: inline-block;
 	padding: 15px;
 	box-sizing: border-box;
   }
+
   #page-nav ul li a {
 	/**color: #fff;
 	text-decoration: none;*/
