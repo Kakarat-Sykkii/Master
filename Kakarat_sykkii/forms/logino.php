@@ -37,6 +37,9 @@ if(isset($_POST['submitStudent'])){
 ?>
 
 <?php
+if(isset($_SESSION['swarningInput'])){
+  echo("<p class=\"warning\">ILLEGAL INPUT: ". $_SESSION['swarningInput']."</p>");
+}
 //***Luovutetaanko ja palataan takaisin pääsivulle alkutilanteeseen
 //ilma  rekisteröintiä?
 if(isset($_POST['submitBack'])){
