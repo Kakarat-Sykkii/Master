@@ -101,9 +101,25 @@ Released   : 20130526
         ?>
                 </fieldset>
     </div>
-    <div id="page">
+    <div class="enmuista">
+        <fieldset>
+            <legend>Ohjeet:</legend>
+                <h4>Vaihe 1.</h4>
+                <p>Kun avaat tämän sivun, sinä voit luoda oman luokan. Täytä kenttään luokan nimi ja paina "Lisää".</p>
+                <h4>Vaihe 2.</h4>
+                <p>Seuraavana hyväksy luokan lisääminen painamalla tallenna. Tämä luo sinulle luokan, johon voit lisätä oppilaiden käyttäjiä.</p>
+                <h4>Vaihe 3.</h4>
+                <p>Nyt sinulla on mahdollisuus lisätä oppilaiden käyttäjiä täyttämällä tunnuksen ja salasanan niille varattuihin kohtiin. Oppilaiden käyttäjät tulevat näkyviin alla olevaan laatikkoon.</p>
+                <h4>Vaihe 4.</h4>
+                <p>Jaa tunnukset nyt oppilaille. He pääsevät kirjautumaan sisään etusivun linkistä oppilaat.</p>
+        </fieldset>
+    </div>
+
+    <!--
+        <div id="page">
 	<div id="content"></div>
 	<div id="sidebar"></div>
+    -->
 </div>
 <div id="footer" class="container">
 	<div>
