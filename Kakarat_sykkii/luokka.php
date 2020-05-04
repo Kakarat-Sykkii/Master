@@ -120,7 +120,7 @@ Released   : 20130526
 	<div id="content"></div>
 	<div id="sidebar"></div>
     -->
-</div>
+
 <div id="footer" class="container">
 	<div>
 		<div class="title">
