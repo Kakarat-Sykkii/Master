@@ -41,7 +41,7 @@ Released   : 20130526
         <input type="checkbox" id="hamburger"/>
   
 		<ul>
-			<li><a href="#" accesskey="1" title="">Etusivu</a></li>
+			<li><a href="index.php" accesskey="1" title="">Etusivu</a></li>
 			<li><a href="pelilauta.php" accesskey="2" title="">Pelilauta</a></li>
 			<li><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
 			<li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li>
