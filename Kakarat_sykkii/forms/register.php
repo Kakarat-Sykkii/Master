@@ -49,10 +49,6 @@ if(isset($_POST['submitUser'])){
 
   //Palataan pääsivulle jos tallennus onnistui -kesken
  }
- if(isset($_SESSION['swarningInput'])){
-    echo("<p class=\"warning\">ILLEGAL INPUT: ". $_SESSION['swarningInput']."</p>");
-  }
-
 }
 ?>
 

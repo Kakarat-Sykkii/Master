@@ -1,13 +1,5 @@
-<?php
-	include("config/start.php");
-	include_once("config/config.php");
-	include_once("forms/register.php");
-	include_once("forms/login.php");
-	include_once("forms/logino.php");
-	include("includes/inav.php");
-	session_start();
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
+
 <!--
 Design by Free CSS Templates
 http://www.freecsstemplates.org
@@ -19,7 +11,7 @@ Version    : 1.0
 Released   : 20130526
 
 -->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="fi" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Kakarat Sykkii</title>
@@ -31,6 +23,15 @@ Released   : 20130526
 <![endif]-->
 </head>
 <body>
+<?php
+	include("config/start.php");
+	include_once("config/config.php");
+	include_once("forms/register.php");
+	include_once("forms/login.php");
+	include_once("forms/logino.php");
+	include("includes/inav.php");
+	session_start();
+?>
 <div id="header" class="container">
 	<div id="logo">
         <h1><a href="#">Kakarat sykkii</a></h1>
@@ -39,13 +40,13 @@ Released   : 20130526
 			<?php
 			if($_SESSION['sloggedIn']=="yes" || $_SESSION['ologgedIn']=="yes"){
 			?>
-				<li><a href="logOutUser" accesskey="8" title="">Kirjaudu ulos</a></li>
+				<li><a href="logOutUser" accesskey="8" >Kirjaudu ulos</a></li>
 			<?php
 			} else {
 			?>	
-        		<li><a href="#" accesskey="6" title="" id="login">Opettaja</a></li>
-				<li><a href="#" accesskey="6" title="" id="logino">Oppilas</a></li>
-				<li><a href="#" accesskey="7" title="" id="register">Rekisteröidy</a></li>
+        		<li><a href="#" accesskey="6" id="login">Opettaja</a></li>
+				<li><a href="#" accesskey="6" id="logino">Oppilas</a></li>
+				<li><a href="#" accesskey="7"  id="register">Rekisteröidy</a></li>
 			<?php
 			}
 			?>	
@@ -58,12 +59,12 @@ Released   : 20130526
         <input type="checkbox" id="hamburger"/>
   
 		<ul>
-			<li class="current_page_item"><a href="#" accesskey="1" title="">Etusivu</a></li>
-			<li><a href="pelilauta.php" accesskey="2" title="">Pelilauta</a></li>
-			<li><a href="aboutus.php" accesskey="3" title="">Tietoa meistä</a></li>
-			<li><a href="vinkkeja.php" accesskey="4" title="">Vinkkejä liikuntaan</a></li><br/>
-			<?php if($_SESSION['sloggedIn']=="yes"){ ?><li><a href="luokka.php" accesskey="9" title="">Luokka</a></li><?php } ?>
-			<?php if($_SESSION['ologgedIn']=="yes"){ ?><li><a href="pistelaskuri.php" accesskey="10" title="">Pistelaskuri</a></li><?php } ?>
+			<li class="current_page_item"><a href="#" accesskey="1">Etusivu</a></li>
+			<li><a href="pelilauta.php" accesskey="2">Pelilauta</a></li>
+			<li><a href="aboutus.php" accesskey="3">Tietoa meistä</a></li>
+			<li><a href="vinkkeja.php" accesskey="4">Vinkkejä liikuntaan</a></li>
+			<?php if($_SESSION['sloggedIn']=="yes"){ ?><li><a href="luokka.php" accesskey="9">Luokka</a></li><?php } ?>
+			<?php if($_SESSION['ologgedIn']=="yes"){ ?><li><a href="pistelaskuri.php" accesskey="10">Pistelaskuri</a></li><?php } ?>
 		</ul>
 	</div>
 </div>
@@ -87,8 +88,8 @@ Released   : 20130526
 	  <div class="modal-body">
 	  	<form method="post">
 			<p>Voit kirjautua sisään tästä:</p>
-			<p>Sähköposti: <input type="text" name="givenEmail" placeholder="S-posti" maxlength="40"></p><br/>
-			<p>Salasana: <input type="password" name="gPassword" placeholder="Salasanasi"></p><br/>
+			<p>Sähköposti: <input type="text" name="givenEmail" placeholder="S-posti" maxlength="40"> <br/></p>
+			<p>Salasana: <input type="password" name="gPassword" placeholder="Salasanasi"> <br/></p>
 			<p>Tästä pääsee kirjautumaan: <input type="submit" name="submitOpe" value ="Kirjaudu"></p>
 			<p>Palaa etusivulle: <input type="submit" name="submitBack" value="lopetus"/></p>
 		</form>
@@ -109,11 +110,11 @@ Released   : 20130526
 		<form method="post">
 			<p>Voit rekisteröityä tästä:</p>
 			<!--<p>Luokan numero: <input type="text" name="gLuokkaID" placeholder="Luokan nro" maxlength="10"></p><br/>-->
-			<p>Sähköpostiosoite: <input type="text" name="givenEmail" placeholder="Sähköpostiosoite" maxlength="40"></p><br/>
-			<p>Nimi: <input type="text" name="gName" placeholder="Anna nimesi" maxlength="40"></p><br/>
-			<p>Salasana: <input type="password" name="gPassword" placeholder="salasana max 40 merkkiä" maxlength="40"></p><br/>
-			<p>Salasana: <input type="password" name="gPasswordVerify" placeholder="salasana uudelleen" maxlength="40"></p><br/>
-			<p>Tästä pääsee rekisteröitymään: <input type="submit" name="submitUser" value="Rekisteröidy"></input></p>
+			<p>Sähköpostiosoite: <input type="text" name="givenEmail" placeholder="Sähköpostiosoite" maxlength="40"><br/></p>
+			<p>Nimi: <input type="text" name="gName" placeholder="Anna nimesi" maxlength="40"><br/></p>
+			<p>Salasana: <input type="password" name="gPassword" placeholder="salasana max 40 merkkiä" maxlength="40"><br/></p>
+			<p>Salasana: <input type="password" name="gPasswordVerify" placeholder="salasana uudelleen" maxlength="40"><br/></p>
+			<p>Tästä pääsee rekisteröitymään: <input type="submit" name="submitUser" value="Rekisteröidy"/></p>
 		  </form>
 	  </div>
 	  <div class="modal-footer">
@@ -131,9 +132,9 @@ Released   : 20130526
 	  <div class="modal-body">
 		<form method="post">
 			<p>Kirjaudu sisään tästä:</p>
-			<p>Tunnus: <input type="text" name="goName" placeholder="Anna nimesi" maxlength="40"></p><br/>
-			<p>Salasana: <input type="password" name="goPassword" placeholder="salasana max 40 merkkiä" maxlength="40"></p><br/>
-			<p>Kirjaudu tästä napista: <input type="submit" name="submitStudent" value="Kirjaudu"></input></p>
+			<p>Tunnus: <input type="text" name="goName" placeholder="Anna nimesi" maxlength="40"><br/></p>
+			<p>Salasana: <input type="password" name="goPassword" placeholder="salasana max 40 merkkiä" maxlength="40"><br/></p>
+			<p>Kirjaudu tästä napista: <input type="submit" name="submitStudent" value="Kirjaudu"/></p>
 			<p>Palaa etusivulle: <input type="submit" name="submitBack" value="paluu"/></p>
 		  </form>
 	  </div>
@@ -162,7 +163,7 @@ Released   : 20130526
 	</div>
 	<p>&copy; 2013 Sitename.com. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://www.freecsstemplates.org/" rel="nofollow">FreeCSSTemplates.org</a>.</p>
 </div>
-</body>
+
 <script>
 	var modal = document.getElementById("myModal");
 	var modal2 = document.getElementById("myModal2");
@@ -197,4 +198,6 @@ Released   : 20130526
 		}
 	}
 </script>
+
+</body>
 </html>
